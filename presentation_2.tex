@@ -39,7 +39,8 @@ parskip=half-, % Paragraphs separated by half a line
 
 \usepackage{subcaption} % for figure  side by side, subfigure
 
-%%%%%%
+%%%%%% updated 2020 by esdd
+%% https://tex.stackexchange.com/questions/547723/latex-throws-errors-on-section
 %------------------------------------------------
 % Colors
 \usepackage[table]{xcolor}   % Required for custom colors
@@ -183,25 +184,23 @@ parskip=half-, % Paragraphs separated by half a line
 % Title slide - you may have to tweak a few of the numbers if you wish to make changes to the layout
 \thispagestyle{empty} % No slide header and footer
 \begin{tikzpicture}[remember picture,overlay] % Background box
-\node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=0.65\paperheight,top color=mygreen,bottom color=mygreen]{}; % Change the height of the box, its colors and position on the page here
+  \node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)
+    [rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\paperheight/2.1,top color=myblue,bottom color=myblue]{}; % Change the height of the box, its colors and position on the page here
 \end{tikzpicture}
 % Text within the box
 \begin{flushright}
-\vspace{0.2cm}
-\color{white}\sffamily
-{\bfseries\Large\mytitle\par} % Title
-\vspace{0.5cm}
-\normalsize
-\mydate\par
-%\vspace{3mm} 
-\myauthor\par % Author name
- % Date
-\myuni\par % TMU
-\vfill
+  \vspace{1.6cm}
+  \color{white}\sffamily
+  {\bfseries\Large\mytitle\par}% Title
+  \vspace{0.5cm}
+  \normalsize
+  \myauthor\par % Author name
+  \mydate\par % Date
+  \myuni\par
+  \vfill
 \end{flushright}
 
 \clearpage
-
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
 %----------------------------------------------------------------------------------------
