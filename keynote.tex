@@ -491,13 +491,13 @@ Anything that can go wrong, will go wrong.
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
 %\centering
 %\widefigure, keepaspectratio
-{\includegraphics[width=4cm]{Figure_1_manuscript_workflow.pdf}} % .PDF is better than .png
+{\includegraphics[width=7cm]{Figure_1_manuscript_workflow.pdf}} % .PDF is better than .png
 %, height=8cm
 %\caption % , step 1 (\textcolor{blue}{blue line}: main procedure) and step 2 (\textcolor{orange}{orange line}: analysis export).
 %Step 3 (purple line: dealing with surgical margin).
 %\sidecaptionvpos{c}
 {\caption{\hl{A workflow of \acrshort{hnscc} biomarker discovery.}
-The workflow includes data retrieval from the TCGA GDC data portal, data processing with merging and cleaning, and then performing the survival analyses (within \textcolor{yellow}{yellow} square).} %The Cutoff engine (in R script: cutofFinder\_func.HNSCC.R, a serial cutoff for grouping patients with \textcolor{asparagus}{low} or \textcolor{red}{high} expression of a specific gene, to yield a collection of \protect\textit{P} values; please see Materials and Methods section for details) might calculate all possible Kaplan--Meier \protect\textit{P} values (corrected by \acrlong{fdr}, FDR, method) to find the optimal cutoff value of gene expression for subsequent Cox modeling. The candidate selection performs (1) dissecting and selection of candidate genes with further Bonferroni adjusted \protect\textit{P} values and the hazard ratios of a Cox model, based on the results from the survival analyses; (2) survival analyses of the other HNSCC dataset (GSE65858) using Kaplan--Meier estimates (with FDR corrections) and Cox modeling.\\ The biomarker candidates were consensus results of TCGA and GSE65858. (HNSCC: head and neck squamous cell carcinoma; TCGA: the Cancer Genome Atlas; RNA-Seq: RNA sequencing; GDC: Genomic Data Commons.)} } % end of caption
+The workflow includes data retrieval from the TCGA GDC data portal, data processing with merging and cleaning, and then performing the survival analyses (within \textcolor{yellow}{yellow} square).}} %The Cutoff engine (in R script: cutofFinder\_func.HNSCC.R, a serial cutoff for grouping patients with \textcolor{asparagus}{low} or \textcolor{red}{high} expression of a specific gene, to yield a collection of \protect\textit{P} values; please see Materials and Methods section for details) might calculate all possible Kaplan--Meier \protect\textit{P} values (corrected by \acrlong{fdr}, FDR, method) to find the optimal cutoff value of gene expression for subsequent Cox modeling. The candidate selection performs (1) dissecting and selection of candidate genes with further Bonferroni adjusted \protect\textit{P} values and the hazard ratios of a Cox model, based on the results from the survival analyses; (2) survival analyses of the other HNSCC dataset (GSE65858) using Kaplan--Meier estimates (with FDR corrections) and Cox modeling.\\ The biomarker candidates were consensus results of TCGA and GSE65858. (HNSCC: head and neck squamous cell carcinoma; TCGA: the Cancer Genome Atlas; RNA-Seq: RNA sequencing; GDC: Genomic Data Commons.)} } % end of caption
 
 % Description:1) FDR correction of Kaplan--Meier \protect\textit{P} values during Cutoff finding; and 2) Bonferroni correction of Kaplan--Meier \protect\textit{P} values after Cox modeling for candidate selection.
 
@@ -522,27 +522,29 @@ The workflow includes data retrieval from the TCGA GDC data portal, data process
 
 
 \clearpage
+\subsection{TCGA HNSCC}
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[width =\textwidth, height = 0.6\textheight, keepaspectratio]{Figure2.pdf}
-\bcaption{The initial progress of candidate selection from the TCGA \acrshort{hnscc} cohort.}{The \protect\textit{P} value of Kaplan--Meier survival was one of the selection criteria.
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
+{\includegraphics[width =\textwidth, height = 0.6\textheight, keepaspectratio]{Figure2.pdf}}
+{\bcaption{The initial progress of candidate selection from the TCGA \acrshort{hnscc} cohort.}{The \protect\textit{P} value of Kaplan--Meier survival was one of the selection criteria.
 The effect size was estimated by Cox's hazard ratio.
 Initial trial step: (a) univariate HR versus FDR-adjusted \protect\textit{P} value; (b) multivariate HR versus FDR-adjusted \protect\textit{P} value.
 After stringent restriction by Bonferroni-adjusted \protect\textit{P} values and Cox's HR, a few top-ranked genes are shown by
 (c) univariate HR versus Bonferroni-adjusted \protect\textit{P} value;  (d) multivariate HR versus Bonferroni-adjusted \protect\textit{P} value.
-(TCGA: \acrlong{tcga}; HR: hazard ratio; FDR: \acrlong{fdr})}
+(TCGA: \acrlong{tcga}; HR: hazard ratio; FDR: \acrlong{fdr})}}
 \end{figure}
 
 \clearpage
 
 \begin{figure}[hbt!]
-
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
 % TCGA FDR Pvalue of CAMK2N1 (1.628308e-05), IL19 ( 6.543871e-06), FCGBP (4.827833e-05), CALML5 (0.0001970348)
-\setlength{\unitlength}{1cm}
+{\setlength{\unitlength}{1cm}
 \begin{picture}(15, 20) %(1,0.55038404)%
 \centering
-  \put(0,0){\includegraphics[width=14cm]{Figure_4_CAMK2N1_CALML5_FCGBP.pdf}}%
+  \put(0,0){\includegraphics[width=6cm]{Figure_4_CAMK2N1_CALML5_FCGBP.pdf}}%
   \put(2.5, 14.3){\fontfamily{qcr}\selectfont
   \tiny *\protect\textit{P} = \num{1.63e-05}}%CAMK2N1
     \put(2.5, 9.45){\fontfamily{qcr}\selectfont
@@ -556,8 +558,9 @@ After stringent restriction by Bonferroni-adjusted \protect\textit{P} values and
 
 %\end{annotationimage}
 \end{picture}%
+}
 
-\bcaption{Kaplan--Meier survival analyses, by cutoff finding.}
+{\bcaption{Kaplan--Meier survival analyses, by cutoff finding.}
 {The Kaplan--Meier curves of (a) CAMK2N1, (c) CALML5, and (e) FCGBP with optimal \protect\textit{P} values. 
 ((b) the cutoffs derived from it's cumulative \protect\textit{P} value plot).
 %(c) Kaplan--Meier plot of IL19 under optimal \protect\textit{P} value;
@@ -567,11 +570,94 @@ After stringent restriction by Bonferroni-adjusted \protect\textit{P} values and
 The cutoffs in the cumulative \protect\textit{P} value plots of (b) CAMK2N1, (d) CALML5, and (f) FCGBP, respectively,
 show that over 50\% of those unadjusted \protect\textit{P} values derived by the sliding-window cutoff-finding procedure are below 0.001.\\
 (* \protect\textit{P}: \protect\textit{P} value adjusted by \acrlong{fdr}, \acrshort{fdr})
-}
+}}
 \end{figure}
 
 \clearpage
 
+%%
+
+\begin{figure}[H]
+    %\centering
+    \includegraphics[width=13cm]{Rplot_TCGA_HNSCC_CoxHR_CAMK2N1_top3FDRKM.pdf}
+    \bcaption{\hl{A volcano plot of genes in survival analyses of TCGA HNSCC}.}{
+%X axis: unadjusted \textit{p}~value of Kaplan--Meier survival (-log10 transformed).
+%Y axis: multivariate hazard ratio from Cox proportional regression model.
+%Dotted line: significant Bonferroni corrected \textit{p}~value. 
+%\textcolor{red}{Red dots} mark 10 genes (unvalidated), which impact on poor prognosis ($HR>=1.5$). \textcolor{green}{Green dots} mark 10 genes (unvalidated), which affect on better survival ($HR<=0.5$).
+    This cohort was applied for exploration of the candidate biomarkers.
+    A total of 9416 genes had %\acrshort{fdr}-
+    unadjusted \textit{p}~values of less than 0.05.
+    \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, \textcolor{red}{FCGBP}, and 17 other genes (marked in \textcolor{black}{black square}) had hazard ratios (HRs) >$1.8$ or <$0.6$.
+    The 22 genes, listed on the side, had hazard ratios between 0.6 and 1.5.
+    \textcolor{red}{Red spots}: $HR$ > 1.0.
+    \textcolor{green}{Green spots}: $HR$ < 1.0.
+    (X-axis: Kaplan--Meier survival estimates, with \acrshort{fdr}-adjusted \textit{p}~values (log10 transformed);
+y-axis: HR of Cox proportional hazard regression model.)
+    }
+    \label{fig:hazards3}
+\end{figure}
+
+%%
+\begin{figure}[H]
+% TCGA FDR Pvalue of CAMK2N1 (1.628308e-05), IL19 ( 6.543871e-06), FCGBP (4.827833e-05), CALML5 (0.0001970348)
+\setlength{\unitlength}{.78cm}
+\begin{picture}(15, 20) %(1,0.55038404)%
+\centering
+  \put(0,0){\includegraphics[width=14cm]{Figure_4_CAMK2N1_CALML5_FCGBP.pdf}}%
+  \put(2.5, 15.3){\fontfamily{qcr}\selectfont
+  \tiny *\textit{p} = \num{1.63e-05}}%CAMK2N1
+    \put(2.5, 9.25){\fontfamily{qcr}\selectfont
+  \tiny *\textit{p} = \num{1.97e-4}}%IL19 6.54e-06 -> CALML5 0.0001970348
+    \put(2.5, 2.45){\fontfamily{qcr}\selectfont
+  \tiny *\textit{p} = \num{4.83e-05}}%FCGBP
+
+%\begin{annotationimage}{width=15cm}{Figure_4_CAMK2N1_IL19_FCGBP.pdf}
+%\includegraphics[width=15cm]{Figure_4_CAMK2N1_IL19.pdf}
+%\draw[annotation left = {Aries at 0.3}]
+
+%\end{annotationimage}
+\end{picture}%
+
+\bcaption{\hl{Kaplan--Meier survival analyses, by cutoff finding.}}
+{The Kaplan--Meier curves of (\textbf{a}) CAMK2N1, (\textbf{c}) CALML5, and (\textbf{e}) FCGBP with optimal \textit{p}~values. 
+%((b) the cutoffs derived from it's cumulative \textit{p}~value plot).
+%(c) Kaplan--Meier plot of IL19 under optimal \textit{p}~value;
+%((d) the cutoffs derived from it's cumulative \textit{p}~value plot).
+%(e) Kaplan--Meier plot of FCGBP under optimal \textit{p}~value.\\
+%The optimal cutoff value for CAMK2N1 is 
+The cutoffs in the cumulative \textit{p}~value plots of (\textbf{b}) CAMK2N1, (\textbf{d}) CALML5, and (\textbf{f}) FCGBP,
+show that over 50\% of those unadjusted \textit{p}~values derived by the sliding-window cutoff-finding procedure are below 0.001.
+(* \textit{p}: \textit{p}~value adjusted by \acrlong{fdr}, \acrshort{fdr}.)
+}
+\label{fig:figure4}
+\end{figure}
+
+
+
+%%
+\subsection{GSE65858}
+
+\begin{figure}[H]
+   % \centering
+    \includegraphics[width=13cm]{Rplot_GSE65858_CoxHR_CAMK2N1_top3FDRKM.pdf}
+    \bcaption{\hl{Volcano plot of genes in survival analyses of GSE65858 cohort.}}{
+    % GSE117973 using the same platform GPL10558
+    This HNSCC cohort was used for filtering of our candidate genes: \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \textcolor{red}{FCGBP}.
+    In total, 534 genes had \acrshort{fdr}-adjusted \textit{p}~values less than 0.05
+    \textcolor{red}{Red spots}: hazard ratios are greater than 1.0;
+    \textcolor{green}{Green spots}: hazard ratios are under 1.0.
+    The 22 genes, listed on the side, had hazard ratios >$1.8$ or <$0.6$.
+    (X-axis: Kaplan--Meier survival estimates, with \acrshort{fdr}-adjusted \textit{p}~values, log10 transformed; y-axis: the hazard ratio (HR) under the Cox proportional hazard regression model).
+    }
+    \label{fig:hazards534}
+\end{figure}
+
+%%
+
+
+
+%%
 \section{Discussion}
 \subsection{The Three Biomarkers in Cancer}
 
@@ -682,7 +768,33 @@ show that over 50\% of those unadjusted \protect\textit{P} values derived by the
 \1 Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
 
 \end{outline}
-
+\begin{figure}[H]
+\widefigure
+    %\centering
+    
+    \begin{subfigure}[a]{0.5\textwidth}
+    \includegraphics[width=9cm]{RplotH2H_TCGA_GSE65858_CoxHR.pdf}
+    \caption{Cox's hazard ratios from TCGA HNSCC and GSE65858 (Pearson's correlation coefficient~\cite{Schober2018}, r = 0.27).}
+    \end{subfigure}
+%\hfill
+    \begin{subfigure}[b]{0.2\textwidth}
+    \includegraphics[width=3cm]{Rplot20_correlation_TCGA_GSE65858_CoxHR.pdf}
+    \caption{Correlations of Cox's hazard ratios of those 20 significant genes (Pearson's r = 0.68).}
+    \end{subfigure}    
+    
+    \bcaption{\hl{A head-to-head comparison of Cox's hazard ratios from TCGA HNSCC and GSE65858 datasets.}}{TCGA HNSCC and GSE65858 cohorts were applied for identification and validation of the candidate biomarkers in HNSCC.
+    (\textbf{a}) A total of 5404 genes had Cox's hazard ratios from TCGA HNSCC and GSE65858 (Pearson's correlation, r = 0.27).
+    %\acrshort{fdr}-\textit{p}~values of less than 0.05 in TCGA HNSCC.
+    \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, \textcolor{red}{FCGBP}, and 17 other genes (marked in \textcolor{black}{black}) had hazard ratios (HRs) >$1.8$ or <$0.6$.
+    \textcolor{red}{Red spots}: $HR$s > 1.0 in TCGA HNSCC.
+    \textcolor{green}{Green spots}: $HR$s < 1.0 in TCGA HNSCC.
+    Sizes of spots: bigger for Kaplan--Meier \textit{p}~values in TCGA HNSCC. %Please ensure intended meaning is retained.
+    (\textbf{b}) The 20 genes were extracted and shown. The hazard ratios of those genes have a moderate correlation between the two cohorts (Pearson's r = 0.68).
+    (X-axis: Hazard ratios of Cox proportional hazard regression model from TCGA HNSCC;
+    y-axis: Those values from GSE65858; TCGA: \acrlong{tcga}; HNSCC: \acrlong{hnscc}.)
+    }
+    \label{fig:hazards_head2head_TCGA_GSE65858}
+\end{figure}
 
 \clearpage
 
@@ -770,11 +882,13 @@ show that over 50\% of those unadjusted \protect\textit{P} values derived by the
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[width =\textwidth, height = 0.6\textheight, keepaspectratio]{Figure_5_holisticCare.pdf}
-\bcaption{The concept of holistic care for \acrshort{hnscc} patients.}
-{\\Beyond carcinogenesis: In the mind--brain--body axis, a stressful environment (giant \textcolor{black}{black} arrow) will trigger an emotional response. The subconscious mind (brain) will release stress hormones and inflammation signals in response to the emotion. The physical body's internal environment (cells) alters epigenetic control in gene regulation and mRNA expression. Over a long incubation time, the tissue/cells will be transformed into dysplasia and then malignancy (e.g., HNSCC) with help from known carcinogens.\\
-Cancer care: Holistic care should take care of cancer patients' spiritual, emotional, physical, and socioeconomic needs. Physical care will be carried out by medication therapy or surgery. After establishing a therapeutic relationship (TR), the physicians' spiritual properties (empathy, sympathy, and compassion) will engage their patients and recover their self-compassion to gain resilience against the disease through their mind--brain--body axis.
-Thus, we suggest that electric healthcare records (EHR) should include physical, pathological, and psychological data, and even more spiritual information. The \acrshort{tcga} might collect those "holistic features"  (\textcolor{green}{green} dashed line) for further study of personalized medicine.}
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
+{\includegraphics[width =\textwidth, height = 0.6\textheight, keepaspectratio]{Figure_5_holisticCare.pdf}}
+{\bcaption{The concept of holistic care for \acrshort{hnscc} patients.}
+{\\Beyond carcinogenesis: In the mind--brain--body axis, a stressful environment (giant \textcolor{black}{black} arrow) will trigger an emotional response.}}
+%The subconscious mind (brain) will release stress hormones and inflammation signals in response to the emotion. The physical body's internal environment (cells) alters epigenetic control in gene regulation and mRNA expression. Over a long incubation time, the tissue/cells will be transformed into dysplasia and then malignancy (e.g., HNSCC) with help from known carcinogens.\\
+%Cancer care: Holistic care should take care of cancer patients' spiritual, emotional, physical, and socioeconomic needs. Physical care will be carried out by medication therapy or surgery. After establishing a therapeutic relationship (TR), the physicians' spiritual properties (empathy, sympathy, and compassion) will engage their patients and recover their self-compassion to gain resilience against the disease through their mind--brain--body axis.
+%Thus, we suggest that electric healthcare records (EHR) should include physical, pathological, and psychological data, and even more spiritual information. The \acrshort{tcga} might collect those "holistic features"  (\textcolor{green}{green} dashed line) for further study of personalized medicine.}
 \end{figure}
 
 \clearpage
