@@ -519,7 +519,7 @@ The workflow includes data retrieval from the TCGA GDC data portal, data process
 
 \begin{figure}[ht]
 
-\\floatbox[{\\capbeside\\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\\linewidth,capbesidesep=quad}}]{figure}[\\FBwidth]
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
 %\centering
 %\widefigure
 {\includegraphics[width =\textwidth, height = 0.6\textheight, keepaspectratio]{Figure_1_manuscript_workflow} % .PDF is better than .png
@@ -545,28 +545,103 @@ The biomarker candidates were consensus results of TCGA and GSE65858.
 
 \section{Results}
 
-\begin{figure}[ht]
 
-\\floatbox[{\\capbeside\\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\\linewidth,capbesidesep=quad}}]{figure}[\\FBwidth]
+
+\begin{figure}[ht]
+%\subsubsection{Figure 2:h}
+%\begin{figure}[H]
+%    \captionsetup[subfigure]{
+%  font=footnotesize,
+%  justification=raggedright
+%  skip=10pt
+%    }
+%    \setlength{\abovecaptionskip}{35pt plus 3pt minus 2pt} % Chosen fairly arbitrarily
 %\centering
-{\includegraphics[width =\textwidth, height = 0.6\textheight, keepaspectratio]{Figure2.pdf} %MDPI: Please revise the scientific notation format to a × 10b, and picture is not clear.
-} 
-*** check *** {\caption{\hl{The initial progress of candidate selection from the TCGA} \acrshort{hnscc} cohort.}{The \protect\textit{p}~value of Kaplan--Meier survival was one of the selection criteria.
-} 
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
+%\centering
+% not \widefigure
+%\includegraphics[width=14cm]{Figure2.pdf} %MDPI: Please revise the scientific notation format to a × 10b, and picture is not clear.ok
+%\https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+% 2 by 2
+% draw by tikz
+{\setlength{\unitlength}{.78cm}
+\begin{picture}(15, 1) %(1,0.55038404)%
+\centering
+%  \put(0,0){\includegraphics[width=14cm]{Figure_4_CAMK2N1_CALML5_FCGBP.pdf}}% X-axis: hyphen to minus sign
+  \put(0.0, 1){\fontfamily{qcr}\selectfont
+   (a)}%CAMK2N1
+    \put(9.5, 1){\fontfamily{qcr}\selectfont
+   (b)}%IL19 6.54e-06 -> CALML5 0.0001970348
+
+\end{picture}
+
+%% ab
+    \begin{subfigure}[b]{0.35\textwidth}
+%\subfloat[Subfigure 1 list of figures text][(a)]{
+%        \vspace*{-5mm}
+%        \caption{~}
+%        \fbox{
+        \includegraphics[width=1\textwidth]{Rplot02_FDRP_uniHR.pdf}  %}    %{Rplot02_rawP_uniHR.pdf}
+
+    \end{subfigure} \hfill
+%\subfloat[Subfigure 1 list of figures text][(b)]{
+    \begin{subfigure}[b]{0.35\textwidth}
+%        \caption{}
+        \includegraphics[width=6.5cm]{Rplot02_FDRP_multiHR.pdf}
+%        \caption{}
+    \end{subfigure} \\
+%\end{adjustwidth}
+%    \vskip\baselineskip
+
+% ,clip,keepaspectratio, ,height=6.5cm
+%\vspace{0.3cm}
+% draw by tikz
+\setlength{\unitlength}{.78cm}
+\begin{picture}(15, 1) %(1,0.55038404)%
+\centering
+%  \put(0,0){\includegraphics[width=14cm]{Figure_4_CAMK2N1_CALML5_FCGBP.pdf}}% X-axis: hyphen to minus sign
+  \put(0.0, 1){\fontfamily{qcr}\selectfont
+   (c)}%CAMK2N1
+    \put(9.5, 1){\fontfamily{qcr}\selectfont
+   (d)}%IL19 6.54e-06 -> CALML5 0.0001970348
+
+\end{picture}
+
+%% cd
+%\begin{adjustwidth}{-3em}{0em}
+%\subfloat[Subfigure 1 list of figures text][(c)]{
+    \begin{subfigure}[b]{0.25\textwidth}
+%        \caption{}
+        \includegraphics[width=6.5cm]{Rplot02_BonferroniP_uniHR.pdf}
+%        \caption{}
+    \end{subfigure} \hfill
+%\qquad
+%\subfloat[Subfigure 1 list of figures text][(d)]{
+    \begin{subfigure}[b]{0.35\textwidth}
+%        \caption{}
+        \includegraphics[width=6.5cm]{Rplot02_BonferroniP_multiHR.pdf}
+%        \caption{}
+    \end{subfigure}
+} % end of {\includegraphics}
+
+{\caption{The initial progress of candidate selection from the TCGA \acrshort{hnscc} cohort.
+The \textit{p}~value of Kaplan--Meier survival was one of the selection criteria.
 The effect size was estimated by Cox's hazard ratio.
-Initial trial step: (\textbf{a}) univariate HR versus FDR-adjusted \protect\textit{p}~value; (\textbf{b}) multivariate HR versus FDR-adjusted \protect\textit{p}~value.
-After stringent restriction by Bonferroni-adjusted \protect\textit{p}~values and Cox's HR, a few top-ranked genes were acquired by
-(\textbf{c}) univariate HR versus Bonferroni-adjusted \protect\textit{p}~value;  (\textbf{d}) multivariate HR versus Bonferroni-adjusted \protect\textit{p}~value.
+Initial trial step: (\textbf{a}) univariate HR versus FDR-adjusted \textit{p}~value; (\textbf{b}) multivariate HR versus FDR-adjusted \textit{p}~value.
+After stringent restriction by Bonferroni-adjusted \textit{p}~values and Cox's HR, a few top-ranked genes were acquired by
+(\textbf{c}) univariate HR versus Bonferroni-adjusted \textit{p}~value;  (\textbf{d}) multivariate HR versus Bonferroni-adjusted \textit{p}~value.
 (TCGA: \acrlong{tcga}; HR: hazard ratio; FDR: \acrlong{fdr}).}
-%%%\label{fig:figure2}
-\end{figure}
+}
+%\label{fig:figure2}
+\end{figure}% * = no overlapping with text
+
 
 \begin{figure}[ht]
 
-\\floatbox[{\\capbeside\\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\\linewidth,capbesidesep=quad}}]{figure}[\\FBwidth]
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
     %\centering
-    \includegraphics[width=13cm]{Rplot_TCGA_HNSCC_CoxHR_CAMK2N1_top3FDRKM.pdf}
-    \bcaption{\hl{A volcano plot of genes in survival analyses of TCGA HNSCC}.}{
+{    \includegraphics[width=13cm]{Rplot_TCGA_HNSCC_CoxHR_CAMK2N1_top3FDRKM.pdf}}
+{    \caption{A volcano plot of genes in survival analyses of TCGA HNSCC.
 %X axis: unadjusted \protect\textit{p}~value of Kaplan--Meier survival (-log10 transformed).
 %Y axis: multivariate hazard ratio from Cox proportional regression model.
 %Dotted line: significant Bonferroni corrected \protect\textit{p}~value. 
@@ -580,16 +655,16 @@ After stringent restriction by Bonferroni-adjusted \protect\textit{p}~values and
     \textcolor{green}{Green spots}: $HR$ < 1.0.
     (X-axis: Kaplan--Meier survival estimates, with \acrshort{fdr}-adjusted \protect\textit{p}~values (log10 transformed);
 y-axis: HR of Cox proportional hazard regression model.)
-    }
+    }}
 %%%\label{fig:hazards3}
 \end{figure}
 
 \begin{figure}[ht]
 
-\\floatbox[{\\capbeside\\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\\linewidth,capbesidesep=quad}}]{figure}[\\FBwidth]
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
    % \centering
-    \includegraphics[width=13cm]{Rplot_GSE65858_CoxHR_CAMK2N1_top3FDRKM.pdf}
-    \bcaption{\hl{Volcano plot of genes in survival analyses of GSE65858 cohort.}}{
+{    \includegraphics[width=13cm]{Rplot_GSE65858_CoxHR_CAMK2N1_top3FDRKM.pdf}}
+{    \caption{Volcano plot of genes in survival analyses of GSE65858 cohort.
     % GSE117973 using the same platform GPL10558
     This HNSCC cohort was used for filtering of our candidate genes: \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \textcolor{red}{FCGBP}.
     In total, 534 genes had \acrshort{fdr}-adjusted \protect\textit{p}~values less than 0.05
@@ -597,15 +672,15 @@ y-axis: HR of Cox proportional hazard regression model.)
     \textcolor{green}{Green spots}: hazard ratios are under 1.0.
     The 22 genes, listed on the side, had hazard ratios >$1.8$ or <$0.6$.
     (X-axis: Kaplan--Meier survival estimates, with \acrshort{fdr}-adjusted \protect\textit{p}~values, log10 transformed; y-axis: the hazard ratio (HR) under the Cox proportional hazard regression model).
-    }
+    }}
 %%%\label{fig:hazards534}
 \end{figure}
 
 \begin{figure}[ht]
 
-\\floatbox[{\\capbeside\\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\\linewidth,capbesidesep=quad}}]{figure}[\\FBwidth]
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
 % TCGA FDR Pvalue of CAMK2N1 (1.628308e-05), IL19 ( 6.543871e-06), FCGBP (4.827833e-05), CALML5 (0.0001970348)
-\setlength{\unitlength}{.78cm}
+{\setlength{\unitlength}{.78cm}
 \begin{picture}(15, 20) %(1,0.55038404)%
 \centering
   \put(0,0){\includegraphics[width=14cm]{Figure_4_CAMK2N1_CALML5_FCGBP.pdf}}%
@@ -622,10 +697,10 @@ y-axis: HR of Cox proportional hazard regression model.)
 
 %\end{annotationimage}
 \end{picture}%
+}
 
-*** check *** {\caption{\hl{Kaplan--Meier survival analyses, by cutoff finding.}}
-} 
-{The Kaplan--Meier curves of (\textbf{a}) CAMK2N1, (\textbf{c}) CALML5, and (\textbf{e}) FCGBP with optimal \protect\textit{p}~values. 
+{\caption{Kaplan--Meier survival analyses, by cutoff finding.
+The Kaplan--Meier curves of (\textbf{a}) CAMK2N1, (\textbf{c}) CALML5, and (\textbf{e}) FCGBP with optimal \protect\textit{p}~values. 
 %((b) the cutoffs derived from it's cumulative \protect\textit{p}~value plot).
 %(c) Kaplan--Meier plot of IL19 under optimal \protect\textit{p}~value;
 %((d) the cutoffs derived from it's cumulative \protect\textit{p}~value plot).
@@ -634,7 +709,7 @@ y-axis: HR of Cox proportional hazard regression model.)
 The cutoffs in the cumulative \protect\textit{p}~value plots of (\textbf{b}) CAMK2N1, (\textbf{d}) CALML5, and (\textbf{f}) FCGBP,
 show that over 50\% of those unadjusted \protect\textit{p}~values derived by the sliding-window cutoff-finding procedure are below 0.001.
 (* \protect\textit{p}: \protect\textit{p}~value adjusted by \acrlong{fdr}, \acrshort{fdr}.)
-}
+}}
 %%%\label{fig:figure4}
 \end{figure}
 
@@ -803,8 +878,8 @@ FCGBP &
 
 \begin{figure}[ht]
 
-\\floatbox[{\\capbeside\\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\\linewidth,capbesidesep=quad}}]{figure}[\\FBwidth]
-\widefigure
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
+{\widefigure
     %\centering
     
     \begin{subfigure}[a]{0.5\textwidth}
@@ -816,8 +891,9 @@ FCGBP &
     \includegraphics[width=3cm]{Rplot20_correlation_TCGA_GSE65858_CoxHR.pdf}
     \caption{Correlations of Cox's hazard ratios of those 20 significant genes (Pearson's r = 0.68).}
     \end{subfigure}    
-    
-    \bcaption{\hl{A head-to-head comparison of Cox's hazard ratios from TCGA HNSCC and GSE65858 datasets.}}{TCGA HNSCC and GSE65858 cohorts were applied for identification and validation of the candidate biomarkers in HNSCC.
+}   
+{    \caption{A head-to-head comparison of Cox's hazard ratios from TCGA HNSCC and GSE65858 datasets.
+TCGA HNSCC and GSE65858 cohorts were applied for identification and validation of the candidate biomarkers in HNSCC.
     (\textbf{a}) A total of 5404 genes had Cox's hazard ratios from TCGA HNSCC and GSE65858 (Pearson's correlation, r = 0.27).
     %\acrshort{fdr}-\protect\textit{p}~values of less than 0.05 in TCGA HNSCC.
     \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, \textcolor{red}{FCGBP}, and 17 other genes (marked in \textcolor{black}{black}) had hazard ratios (HRs) >$1.8$ or <$0.6$.
@@ -827,7 +903,7 @@ FCGBP &
     (\textbf{b}) The 20 genes were extracted and shown. The hazard ratios of those genes have a moderate correlation between the two cohorts (Pearson's r = 0.68).
     (X-axis: Hazard ratios of Cox proportional hazard regression model from TCGA HNSCC;
     y-axis: Those values from GSE65858; TCGA: \acrlong{tcga}; HNSCC: \acrlong{hnscc}.)
-    }
+    }}
 %%%\label{fig:hazards_head2head_TCGA_GSE65858}
 \end{figure}
 
@@ -848,10 +924,10 @@ FCGBP &
 
 \begin{figure}[ht]
 
-\\floatbox[{\\capbeside\\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\\linewidth,capbesidesep=quad}}]{figure}[\\FBwidth]
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
 \centering
 
-\setlength{\unitlength}{.78cm}
+{\setlength{\unitlength}{.78cm}
 \begin{picture}(15, 20) %(1,0.55038404)%
 \centering
   \put(0,0){\includegraphics[width=11cm]{Figure_5_holisticCare.pdf}}%
@@ -860,13 +936,12 @@ FCGBP &
 
 %\includegraphics[width=10cm]{Figure_5_holisticCare.pdf}
 \end{picture}
-
-*** check *** {\caption{\hl{The concept of holistic care for} \acrshort{hnscc} patients.} %MDPI: please confirm if the extra lines and frame need to be deleted.
-} 
-{Beyond carcinogenesis: In the mind--brain--body axis, a stressful environment (giant \textcolor{black}{black} arrow) will trigger an emotional response. The subconscious mind (brain) releases stress hormones and inflammation signals in response to negative emotions. The  body's internal environment (cells) alters epigenetic control in gene regulation and mRNA expression. Over a long time, the tissue/cells will be transformed into dysplasia and then malignancy (e.g., HNSCC) with help from known carcinogens.
+}
+{\caption{The concept of holistic care for \acrshort{hnscc} patients. %MDPI: please confirm if the extra lines and frame need to be deleted.
+Beyond carcinogenesis: In the mind--brain--body axis, a stressful environment (giant \textcolor{black}{black} arrow) will trigger an emotional response. The subconscious mind (brain) releases stress hormones and inflammation signals in response to negative emotions. The  body's internal environment (cells) alters epigenetic control in gene regulation and mRNA expression. Over a long time, the tissue/cells will be transformed into dysplasia and then malignancy (e.g., HNSCC) with help from known carcinogens.
 Cancer care: Holistic care should take care of cancer patients' spiritual, emotional, physical, and socioeconomic needs. Physical care will be carried out by medication therapy or surgery. After establishing a therapeutic relationship (TR), the physicians' spiritual properties (empathy, sympathy, and compassion) will engage cancer patients and recover their self-compassion to gain resilience against the disease through their mind--brain--body axis.
 Thus, we suggest that electric healthcare records (EHR) should include physical, pathological, and psychological data, and even more spiritual information. The \acrshort{tcga} might collect those "holistic features"  (\textcolor{green}{green} dashed line) for further study of personalized medicine.}
-
+}
 
 %%%\label{fig:figure5}
 \end{figure}
