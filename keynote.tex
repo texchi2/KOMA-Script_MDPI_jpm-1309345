@@ -28,6 +28,7 @@ paper=160mm:90mm, %128mm:96mm, % The same paper size as used in the beamer class
 fontsize=11pt, % Font size
 pagesize, % Write page size to dvi or pdf
 parskip=half-, % Paragraphs separated by half a line
+%captions=tableheading
 ]{scrartcl} % KOMA script (article)
 
 \linespread{1.12} % Increase line spacing for readability
@@ -630,21 +631,21 @@ Step 2: filtering by Bonferroni corrected KM \textit{p}~value,
 
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
     %\centering
-{    \includegraphics[width=7cm]{Rplot_TCGA_HNSCC_CoxHR_CAMK2N1_top3FDRKM.pdf}}
-{    \caption{A volcano plot of genes in survival analyses of TCGA HNSCC.
+{    \includegraphics[width=9cm]{Rplot_TCGA_HNSCC_CoxHR_CAMK2N1_top3FDRKM.pdf}}
+{    \caption{A volcano plot of 20 candidate genes in TCGA HNSCC.
 %X axis: unadjusted \protect\textit{p}~value of Kaplan--Meier survival (-log10 transformed).
 %Y axis: multivariate hazard ratio from Cox proportional regression model.
 %Dotted line: significant Bonferroni corrected \protect\textit{p}~value. 
 %\textcolor{red}{Red dots} mark 10 genes (unvalidated), which impact on poor prognosis ($HR>=1.5$). \textcolor{green}{Green dots} mark 10 genes (unvalidated), which affect on better survival ($HR<=0.5$).
-    This cohort was applied for exploration of the candidate biomarkers.
-    A total of 9416 genes had %\acrshort{fdr}-
-    unadjusted \protect\textit{p}~values of less than 0.05.
+%    This cohort was applied for exploration of the candidate biomarkers.
+%    A total of 9416 genes had %\acrshort{fdr}-
+%    unadjusted \protect\textit{p}~values of less than 0.05.
     \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, \textcolor{red}{FCGBP}, and 17 other genes (marked in \textcolor{black}{black square}) had hazard ratios (HRs) >$1.8$ or <$0.6$.
-    The 22 genes, listed on the side, had hazard ratios between 0.6 and 1.5.
+%    The 22 genes, listed on the side, had hazard ratios between 0.6 and 1.5.
     \textcolor{red}{Red spots}: $HR$ > 1.0.
     \textcolor{green}{Green spots}: $HR$ < 1.0.
-    (X-axis: Kaplan--Meier survival estimates, with \acrshort{fdr}-adjusted \protect\textit{p}~values (log10 transformed);
-y-axis: HR of Cox proportional hazard regression model.)
+%    (X-axis: Kaplan--Meier survival estimates, with \acrshort{fdr}-adjusted \protect\textit{p}~values (log10 transformed);
+%y-axis: HR of Cox proportional hazard regression model.)
     }}
 %%%\label{fig:hazards3}
 \end{figure}
@@ -654,15 +655,15 @@ y-axis: HR of Cox proportional hazard regression model.)
 
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
    % \centering
-{    \includegraphics[width=7cm]{Rplot_GSE65858_CoxHR_CAMK2N1_top3FDRKM.pdf}}
-{    \caption{Volcano plot of genes in survival analyses of GSE65858 cohort.
+{    \includegraphics[width=9cm]{Rplot_GSE65858_CoxHR_CAMK2N1_top3FDRKM.pdf}}
+{    \caption{Volcano plot of genes in survival analyses of a validation (GSE65858) cohort.
     % GSE117973 using the same platform GPL10558
-    This HNSCC cohort was used for filtering of our candidate genes: \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \textcolor{red}{FCGBP}.
-    In total, 534 genes had \acrshort{fdr}-adjusted \protect\textit{p}~values less than 0.05
+The candidate genes---\textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \textcolor{red}{FCGBP}---was confirmed.
+%    In total, 534 genes had \acrshort{fdr}-adjusted \protect\textit{p}~values less than 0.05
     \textcolor{red}{Red spots}: hazard ratios are greater than 1.0;
     \textcolor{green}{Green spots}: hazard ratios are under 1.0.
-    The 22 genes, listed on the side, had hazard ratios >$1.8$ or <$0.6$.
-    (X-axis: Kaplan--Meier survival estimates, with \acrshort{fdr}-adjusted \protect\textit{p}~values, log10 transformed; y-axis: the hazard ratio (HR) under the Cox proportional hazard regression model).
+%    The 22 genes, listed on the side, had hazard ratios >$1.8$ or <$0.6$.
+%    (X-axis: Kaplan--Meier survival estimates, with \acrshort{fdr}-adjusted \protect\textit{p}~values, log10 transformed; y-axis: the hazard ratio (HR) under the Cox proportional hazard regression model).
     }}
 %%%\label{fig:hazards534}
 \end{figure}
@@ -671,17 +672,17 @@ y-axis: HR of Cox proportional hazard regression model.)
 \clearpage
 \begin{figure}[ht]
 
-\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.45\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
 % TCGA FDR Pvalue of CAMK2N1 (1.628308e-05), IL19 ( 6.543871e-06), FCGBP (4.827833e-05), CALML5 (0.0001970348)
 {\setlength{\unitlength}{.78cm}
-\begin{picture}(15, 20) %(1,0.55038404)%
+\begin{picture}(9, 10) %(1,0.55038404)%
 \centering
-  \put(0,0){\includegraphics[width=14cm]{Figure_4_CAMK2N1_CALML5_FCGBP.pdf}}%
-  \put(2.5, 15.3){\fontfamily{qcr}\selectfont
+  \put(0,0){\includegraphics[height=7.5cm]{Figure_4_CAMK2N1_CALML5_FCGBP.pdf}}%
+  \put(1.3, 7.25){\fontfamily{qcr}\selectfont
   \tiny *\protect\textit{p} = \num{1.63e-05}}%CAMK2N1
-    \put(2.5, 9.25){\fontfamily{qcr}\selectfont
+    \put(1.3, 4.25){\fontfamily{qcr}\selectfont
   \tiny *\protect\textit{p} = \num{1.97e-4}}%IL19 6.54e-06 -> CALML5 0.0001970348
-    \put(2.5, 2.45){\fontfamily{qcr}\selectfont
+    \put(1.3, 1.15){\fontfamily{qcr}\selectfont
   \tiny *\protect\textit{p} = \num{4.83e-05}}%FCGBP
 
 %\begin{annotationimage}{width=15cm}{Figure_4_CAMK2N1_IL19_FCGBP.pdf}
@@ -691,30 +692,33 @@ y-axis: HR of Cox proportional hazard regression model.)
 %\end{annotationimage}
 \end{picture}%
 }
-
-{\caption{Kaplan--Meier survival analyses, by cutoff finding.
+%\hfill
+{\caption{Kaplan--Meier survival analyses, during cutoff finding.
 The Kaplan--Meier curves of (\textbf{a}) CAMK2N1, (\textbf{c}) CALML5, and (\textbf{e}) FCGBP with optimal \protect\textit{p}~values. 
 %((b) the cutoffs derived from it's cumulative \protect\textit{p}~value plot).
 %(c) Kaplan--Meier plot of IL19 under optimal \protect\textit{p}~value;
 %((d) the cutoffs derived from it's cumulative \protect\textit{p}~value plot).
 %(e) Kaplan--Meier plot of FCGBP under optimal \protect\textit{p}~value.\\
 %The optimal cutoff value for CAMK2N1 is 
-The cutoffs in the cumulative \protect\textit{p}~value plots of (\textbf{b}) CAMK2N1, (\textbf{d}) CALML5, and (\textbf{f}) FCGBP,
-show that over 50\% of those unadjusted \protect\textit{p}~values derived by the sliding-window cutoff-finding procedure are below 0.001.
+The cutoffs in the cumulative FDR-adjusted \protect\textit{p}~value plots of (\textbf{b}) CAMK2N1, (\textbf{d}) CALML5, and (\textbf{f}) FCGBP.%,
+%show that over 50\% of those unadjusted \protect\textit{p}~values derived by the sliding-window cutoff-finding procedure are below 0.001.
 (* \protect\textit{p}: \protect\textit{p}~value adjusted by \acrlong{fdr}, \acrshort{fdr}.)
 }}
 %%%\label{fig:figure4}
 \end{figure}
 
+
+%% table 1
+\clearpage
 \begin{table}[H] 
 %\centering
-%%%\caption{Univariate/multivariate Cox proportional hazard regression analyses on OS time of CAMK2N1 gene expression in HNSCC.}
+\captionabove{Univariate/multivariate Cox proportional hazard regression analyses on overall survival time of CAMK2N1 gene expression in HNSCC.}
 
 %%%\label{table:table2}
 \arrayrulecolor[rgb]{0.255,0.255,0.255}
 
 
-\resizebox{\linewidth}{!}{%
+\resizebox{0.55\linewidth}{!}{%
 \begin{tabular}{|l|l|c|c|c|c|c|c|} 
 \noalign{\hrule height 1.0pt}
 %\begin{tabularx}{\textwidth}{|p{2.5cm}|l|l|l|l|l|l|l|} 
@@ -768,21 +772,25 @@ show that over 50\% of those unadjusted \protect\textit{p}~values derived by the
 \end{tabular}
 } % end of \resizebox
 
-\pbox{\columnwidth}{\footnotesize {
+\pbox{0.7\columnwidth}{\footnotesize {
 (OS: overall survival;
 HR: hazard ratio;
 CI95\%: 95\% confidence interval;
-\protect\textit{p}~value significant code is denoted: red \textless{} 0.05).} %; *** \textless{} 0.001).}                                        
+\protect\textit{p}~value significant code is denoted: red \textless{} 0.05).} %; *** \textless{} 0.001).}                              
 }
 %\arrayrulecolor{black}
 \end{table}
 
+
+
+%%%%
+\clearpage
 \begin{table}[H] 
 %\centering
-%%%\caption{The top 3 genes with prognostic impacts on HNSCC.}% (ranked by Bonferroni-adjusted \protect\textit{p}~values}
+\caption{The top 3 genes with prognostic impacts on HNSCC.}% (ranked by Bonferroni-adjusted \protect\textit{p}~values}
 
 %%%\label{tab:newTable1}
-\resizebox{\linewidth}{!}{% \textwidth
+\resizebox{0.9\linewidth}{!}{% \textwidth
 \begin{tabular}{|l|l|l|c|c|c|c|c|c|}
 \noalign{\hrule height 1.0pt}
 \multicolumn{1}{|c|}{} &
@@ -836,7 +844,7 @@ FCGBP &
 
 \end{tabular}%
 }
-\pbox{\columnwidth}{\footnotesize Selection criteria (fit all): 
+\pbox{0.8\columnwidth}{\footnotesize Selection criteria (fit all): 
 (1) Kaplan--Meier Bonferroni-adjusted \protect\textit{p} \textless~0.05; 
 (2) Cox's univariate and multivariate HR \textgreater{}= 1.8 or \textless{}= 0.6 in TCGA cohort; 
 (3) Cox's univariate and multivariate HR \textgreater{}= 1.8 or \textless{}= 0.6 in GSE65858 cohort.\\
@@ -844,7 +852,7 @@ FCGBP &
 (HR: hazard ratio; CI95\%: 95\% confidence interval; FDR: \acrlong{fdr}).}
 
 \end{table}
-
+\clearpage
 
 \section{Discussion}
 
@@ -852,10 +860,10 @@ FCGBP &
 \subsection*{The Three Biomarkers in Cancer}
 
 
-\subsubsection*{The Protein/Pathology Atlas} %still TCGA's RNA-Seq (ok)
+%\subsubsection*{The Protein/Pathology Atlas} %still TCGA's RNA-Seq (ok)
 
 
-\subsubsection*{Literature Review} % literature (ok)
+%\subsubsection*{Literature Review} % literature (ok)
 
 
 \subsection*{Feature Selection for Survival Modeling} % Even there are many $X_1 ... X_n$ physical and social features of patients available for survival modelling in the TCGA.
@@ -864,7 +872,7 @@ FCGBP &
 \subsection*{The Purpose of Sliding-Window Cutoff Selection}
 
 
-\subsection*{Technical Considerations}
+%\subsection*{Technical Considerations}
 
 
 \subsection{Limitations of the Study}
