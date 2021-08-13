@@ -366,8 +366,8 @@ parskip=half-, % Paragraphs separated by half a line
 %----------------------------------------------------------------------------------------
 %	PRESENTER INFORMATION
 %----------------------------------------------------------------------------------------
-
-\newcommand*{\mytitle}{Transcriptomic Analysis for Prognostic Value in Head and Neck Squamous Cell Carcinoma} % Title
+% 
+\newcommand*{\mytitle}{A Transcriptomic Analysis of Head and Neck Squamous Cell Carcinomas for Prognostic Indications} % old Title Transcriptomic Analysis for Prognostic Value in Head and Neck Squamous Cell Carcinoma
 \newcommand*{\runninghead}{HNSCC Biomarker} % Running head displayed on almost all slides
 \newcommand*{\myauthor}{Tex Li-Hsing Chi} % Presenters name(s)
 \newcommand*{\mydate}{\today} % Presentation date
@@ -399,6 +399,8 @@ parskip=half-, % Paragraphs separated by half a line
   \myuni\par
   \vfill
 \end{flushright}
+Chi, L.-H., Wu, A. T. H., Hsiao, M. \& Li, Y.-C. (Jack). A Transcriptomic Analysis of Head and Neck Squamous Cell Carcinomas for Prognostic Indications. J. Pers. Med. 11, 782 (2021).
+%\cite{Chi2021}
 
 \clearpage
 %----------------------------------------------------------------------------------------
@@ -424,88 +426,113 @@ parskip=half-, % Paragraphs separated by half a line
 
 
 
-%------------------------------------------------
 
-
-\section*{Verbatim}
-
-How to include a theorem in this presentation:
-\begin{verbatim}
-\mybox{0.8\textwidth}{
-\begin{theorem}[Murphy (1949)]
-Anything that can go wrong, will go wrong.
-\end{theorem}
-}
-\end{verbatim}
-
-\clearpage
-
-%------------------------------------------------
-
-
-
-\subsection*{Figure}
-
-%\clearfloatsetup{figure}
-%\floatsetup[figure]{style=no,capposition=beside,capbesideposition={center,inside},capbesideframe=yes,facing=yes}
-
-\begin{figure}[ht]
-\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
-{\caption{\texttt{capbesidesep=quad}. I want to thank Sonia. The caption can contain any text but needs to describe the image with enough detail for a reader to completely understand the image.}}
-{\includegraphics[width=0.6\textwidth]{placeholder.jpg}}
-\end{figure}
-%\includegraphics[width=9cm]{placeholder}
-
-%\sidecaptionvpos{c}
-%\caption{I want to thank Sonia.}
-%\end{captionbeside}
-
-
-\clearpage
-
-%------------------------------------------------
-
-
-
-\section{Introduction0}
-
+\section{Introduction}
 
 \begin{outline}
-
-\1 Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
-
-\2 Nulla commodo, erat quis gravida posuere
-\1 elit lacus lobortis est, quis porttitor odio mauris at libero
-\1 Nam cursus est eget velit posuere pellentesque
-\1 Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
-
+    \1 Survival analysis of the Cancer Genome Atlas (TCGA) dataset for HNSCC
+        \2 gene expression-based prognostic biomarkers
+        \2 a cutoff point is usually used in survival analysis
 \end{outline}
 
+\clearpage
+
+\begin{figure}
+  \begin{minipage}[c]{0.4\linewidth}
+    \centering
+    \includegraphics[height=7.0cm, width=7.5cm]{graphic_abstract_pvalueTex.pdf}%
+%    \caption{A workflow}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.6\linewidth}
+    \centering
+    \begin{outline}
+    \1 An in-house workflow---pvalueTex---in Rstudio server
+        \2 data retrieving from TCGA via FirebrowseR package
+        \2 pre-processing and data cleaning
+        \2 feature selection
+        \2 sliding-window cutoff mining engine for Kaplan--Meier survival analysis
+        \2 Cox proportional hazard modeling
+        \2 validation by using the another independent HNSCC dataset (GSE65858)~\cite{Wichmann2015}
+
+    \end{outline}
+%    \captionof{table} % by KOMA-script
+%      {%
+%        Different kinds of ducks%
+%        \label{tab:duck}%
+ %     }
+  \end{minipage}
+\end{figure}
 
 \clearpage
 
 
+Keyword:\\
+head and neck squamous cell carcinoma (HNSCC);\\
+the Cancer Genome Atlas (TCGA); \\
+transcriptomic analysis; survival analysis; \\
+optimal cutoff; \\
+effect size; \\
+\acrfull{CAMK2N1}; \\
+\acrfull{CALML5}; \\
+\acrfull{FCGBP}; \\
+mindfulness meditation
+
+
+
+\clearpage
+
+The advantages of applying the TCGA data for cancer biomarker identification include:
+\begin{outline}
+\1  the TCGA database has the largest collection (cancer types and cohort size), especially in HNSCC)
+%There are many physical and social features of patients available for survival modeling. % ($X_1 ... X_n$)
+\2 the whole-genome sequencing data were harmonized
+\2 the essential demographic data, physical and social features of patients (exposure to alcohol, asbestos, radioactive radon, tobacco smoking, and cigarettes)
+\2 computational and life scientists who study cancer designed useful web-based tools and APIs
+\1 getting help soon from the research community for trouble-shooting purposes
+\1 many achievements and getting published~\cite{Tomczak2015}.
+\end{outline}
+
+\clearpage
+
+
+
+
+\begin{figure}
+
+  \begin{minipage}[c]{0.45\linewidth}
+
+The advantages of our workflow---pvalueTex:
+\begin{outline}
+\1 A model with biomarker estimates %(Figure \ref{fig:figure1})
+    \2 scanning 20,500 human protein-coding genes
+\1 The Purpose of Sliding-Window Cutoff Selection
+    \2 to find an optimal cutpoint of that \acrshort{rna} expression data 
+    \2 to maximize candidate mining coverage
+%    \2 identify more but sometimes weak "biomarkers"
+    \2 validation by the other cohort
+\end{outline}
+\end{minipage}
 % figure replaced by minipage
 %\clearfloatsetup{figure}
 %\floatsetup[figure]{style=no,capposition=beside,capbesideposition={center,outside},capbesideframe=yes,facing=yes}
-
-\todo{python code for all figures}
-
-\begin{figure}[ht]
-\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
+\hfill
+%\todo{python code for all figures}
+\begin{minipage}[c]{0.5\linewidth}
+%\label{fig:figure1}
+%\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
 %\centering
 %\widefigure, keepaspectratio
-{\includegraphics[width=7cm]{Figure_1_manuscript_workflow.pdf}} % .PDF is better than .png
+\includegraphics[width=8cm]{Figure_1_manuscript_workflow.pdf} % .PDF is better than .png
 %, height=8cm
 %\caption % , step 1 (\textcolor{blue}{blue line}: main procedure) and step 2 (\textcolor{orange}{orange line}: analysis export).
 %Step 3 (purple line: dealing with surgical margin).
 %\sidecaptionvpos{c}
-{\caption{\hl{A workflow of \acrshort{hnscc} biomarker discovery.}
-The workflow includes data retrieval from the TCGA GDC data portal, data processing with merging and cleaning, and then performing the survival analyses (within \textcolor{yellow}{yellow} square).}} %The Cutoff engine (in R script: cutofFinder\_func.HNSCC.R, a serial cutoff for grouping patients with \textcolor{asparagus}{low} or \textcolor{red}{high} expression of a specific gene, to yield a collection of \protect\textit{P} values; please see Materials and Methods section for details) might calculate all possible Kaplan--Meier \protect\textit{P} values (corrected by \acrlong{fdr}, FDR, method) to find the optimal cutoff value of gene expression for subsequent Cox modeling. The candidate selection performs (1) dissecting and selection of candidate genes with further Bonferroni adjusted \protect\textit{P} values and the hazard ratios of a Cox model, based on the results from the survival analyses; (2) survival analyses of the other HNSCC dataset (GSE65858) using Kaplan--Meier estimates (with FDR corrections) and Cox modeling.\\ The biomarker candidates were consensus results of TCGA and GSE65858. (HNSCC: head and neck squamous cell carcinoma; TCGA: the Cancer Genome Atlas; RNA-Seq: RNA sequencing; GDC: Genomic Data Commons.)} } % end of caption
+%{\caption{\hl{A workflow of \acrshort{hnscc} biomarker discovery.}
+%The workflow includes data retrieval from the TCGA GDC data portal, data processing with merging and cleaning, and then performing the survival analyses (within \textcolor{yellow}{yellow} square).}} %The Cutoff engine (in R script: cutofFinder\_func.HNSCC.R, a serial cutoff for grouping patients with \textcolor{asparagus}{low} or \textcolor{red}{high} expression of a specific gene, to yield a collection of \protect\textit{P} values; please see Materials and Methods section for details) might calculate all possible Kaplan--Meier \protect\textit{P} values (corrected by \acrlong{fdr}, FDR, method) to find the optimal cutoff value of gene expression for subsequent Cox modeling. The candidate selection performs (1) dissecting and selection of candidate genes with further Bonferroni adjusted \protect\textit{P} values and the hazard ratios of a Cox model, based on the results from the survival analyses; (2) survival analyses of the other HNSCC dataset (GSE65858) using Kaplan--Meier estimates (with FDR corrections) and Cox modeling.\\ The biomarker candidates were consensus results of TCGA and GSE65858. (HNSCC: head and neck squamous cell carcinoma; TCGA: the Cancer Genome Atlas; RNA-Seq: RNA sequencing; GDC: Genomic Data Commons.)} } % end of caption
 
 % Description:1) FDR correction of Kaplan--Meier \protect\textit{P} values during Cutoff finding; and 2) Bonferroni correction of Kaplan--Meier \protect\textit{P} values after Cox modeling for candidate selection.
 
-%\end{minipage}
+\end{minipage}
 \end{figure}
 
 \clearpage
@@ -515,32 +542,7 @@ The workflow includes data retrieval from the TCGA GDC data portal, data process
 %%%%%%%
 
 
-\section{Introduction}
 
-\begin{figure}[ht]
-
-\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
-%\centering
-%\widefigure
-{\includegraphics[width =\textwidth, height = 0.6\textheight, keepaspectratio]{Figure_1_manuscript_workflow} % .PDF is better than .png
-} 
-%, height=8cm
-%\caption % , step 1 (\textcolor{blue}{blue line}: main procedure) and step 2 (\textcolor{orange}{orange line}: analysis export).
-%Step 3 (purple line: dealing with surgical margin).
-%MDPI: Picture is not clear. Please replace with a sharper image.
-*** check *** {\caption{\hl{A workflow of} \acrshort{hnscc} biomarker discovery.} %MDPI: Is the bold necessary?
-} 
-{The workflow includes data retrieval from the TCGA GDC data portal, data processing with merging and cleaning, and then performing the survival analyses (within \textcolor{yellow}{yellow} square). The Cutoff engine (in R script: cutofFinder\_func.HNSCC.R, a serial cutoff for grouping patients with \textcolor{asparagus}{low} or \textcolor{red}{high} expression of a specific gene, to yield a collection of \protect\textit{p}~values; please see Materials and Methods section for details) might calculate all possible Kaplan--Meier \protect\textit{p}~values (corrected by \acrlong{fdr} (FDR) method) to find the optimal cutoff value of gene expression for subsequent Cox modeling.
-The candidate selection performs (1) dissection and selection of candidate genes with further Bonferroni-adjusted \protect\textit{p}~values and the hazard ratios of a Cox model, based on the results from the survival analyses;
-(2) survival analyses of the other HNSCC dataset (GSE65858) using Kaplan--Meier estimates (with FDR corrections) and Cox modeling. 
-The biomarker candidates were consensus results of TCGA and GSE65858. 
-%The selected genes were validated by third HNSCC cohort (GSE2837).\\
-(HNSCC: head and neck squamous cell carcinoma; TCGA: the Cancer Genome Atlas; RNA-Seq: RNA sequencing; GDC: Genomic Data Commons.)}
-%%%\label{fig:figure1}
-% Description:1) FDR correction of Kaplan--Meier \protect\textit{p}~values during Cutoff finding; and 2) Bonferroni correction of Kaplan--Meier \protect\textit{p}~values after Cox modeling for candidate selection.
-
-
-\end{figure}
 
 
 \section{Results}
@@ -557,90 +559,78 @@ The biomarker candidates were consensus results of TCGA and GSE65858.
 %    }
 %    \setlength{\abovecaptionskip}{35pt plus 3pt minus 2pt} % Chosen fairly arbitrarily
 %\centering
-\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
+%\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
 %\centering
 % not \widefigure
 %\includegraphics[width=14cm]{Figure2.pdf} %MDPI: Please revise the scientific notation format to a × 10b, and picture is not clear.ok
 %\https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
 % 2 by 2
-% draw by tikz
-{\setlength{\unitlength}{.78cm}
-\begin{picture}(15, 1) %(1,0.55038404)%
-\centering
-%  \put(0,0){\includegraphics[width=14cm]{Figure_4_CAMK2N1_CALML5_FCGBP.pdf}}% X-axis: hyphen to minus sign
-  \put(0.0, 1){\fontfamily{qcr}\selectfont
-   (a)}%CAMK2N1
-    \put(9.5, 1){\fontfamily{qcr}\selectfont
-   (b)}%IL19 6.54e-06 -> CALML5 0.0001970348
 
-\end{picture}
 
 %% ab
-    \begin{subfigure}[b]{0.35\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
 %\subfloat[Subfigure 1 list of figures text][(a)]{
 %        \vspace*{-5mm}
 %        \caption{~}
 %        \fbox{
-        \includegraphics[width=1\textwidth]{Rplot02_FDRP_uniHR.pdf}  %}    %{Rplot02_rawP_uniHR.pdf}
+        \includegraphics[width=6.5cm]{Rplot02_FDRP_uniHR.pdf}  %}    %{Rplot02_rawP_uniHR.pdf}
 
     \end{subfigure} \hfill
 %\subfloat[Subfigure 1 list of figures text][(b)]{
-    \begin{subfigure}[b]{0.35\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
 %        \caption{}
         \includegraphics[width=6.5cm]{Rplot02_FDRP_multiHR.pdf}
 %        \caption{}
     \end{subfigure} \\
 %\end{adjustwidth}
 %    \vskip\baselineskip
-
 % ,clip,keepaspectratio, ,height=6.5cm
 %\vspace{0.3cm}
-% draw by tikz
-\setlength{\unitlength}{.78cm}
-\begin{picture}(15, 1) %(1,0.55038404)%
-\centering
-%  \put(0,0){\includegraphics[width=14cm]{Figure_4_CAMK2N1_CALML5_FCGBP.pdf}}% X-axis: hyphen to minus sign
-  \put(0.0, 1){\fontfamily{qcr}\selectfont
-   (c)}%CAMK2N1
-    \put(9.5, 1){\fontfamily{qcr}\selectfont
-   (d)}%IL19 6.54e-06 -> CALML5 0.0001970348
 
-\end{picture}
+\caption{
+%The effect size was estimated by Cox's hazard ratio.
+Step 1: selection by Kaplan--Meier (KM) survival \textit{p}~value, 
+(\textbf{a}) univariate HR versus FDR-adjusted \textit{p}~value; (\textbf{b}) multivariate HR versus FDR-adjusted \textit{p}~value.}
 
+\end{figure}
+
+\clearpage
+\begin{figure}
 %% cd
 %\begin{adjustwidth}{-3em}{0em}
 %\subfloat[Subfigure 1 list of figures text][(c)]{
-    \begin{subfigure}[b]{0.25\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
 %        \caption{}
         \includegraphics[width=6.5cm]{Rplot02_BonferroniP_uniHR.pdf}
 %        \caption{}
     \end{subfigure} \hfill
 %\qquad
 %\subfloat[Subfigure 1 list of figures text][(d)]{
-    \begin{subfigure}[b]{0.35\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
 %        \caption{}
         \includegraphics[width=6.5cm]{Rplot02_BonferroniP_multiHR.pdf}
 %        \caption{}
     \end{subfigure}
-} % end of {\includegraphics}
+ % end of {\includegraphics}
 
-{\caption{The initial progress of candidate selection from the TCGA \acrshort{hnscc} cohort.
-The \textit{p}~value of Kaplan--Meier survival was one of the selection criteria.
-The effect size was estimated by Cox's hazard ratio.
-Initial trial step: (\textbf{a}) univariate HR versus FDR-adjusted \textit{p}~value; (\textbf{b}) multivariate HR versus FDR-adjusted \textit{p}~value.
-After stringent restriction by Bonferroni-adjusted \textit{p}~values and Cox's HR, a few top-ranked genes were acquired by
-(\textbf{c}) univariate HR versus Bonferroni-adjusted \textit{p}~value;  (\textbf{d}) multivariate HR versus Bonferroni-adjusted \textit{p}~value.
-(TCGA: \acrlong{tcga}; HR: hazard ratio; FDR: \acrlong{fdr}).}
-}
+\caption{
+%After stringent restriction by Bonferroni-adjusted \textit{p}~values and Cox's HR, a few top-ranked genes were acquired by
+Step 2: filtering by Bonferroni corrected KM \textit{p}~value, 
+(\textbf{c}) univariate HR versus \textit{p}~value; (\textbf{d}) multivariate HR versus \textit{p}~value.}
+%(TCGA: \acrlong{tcga}; HR: hazard ratio; FDR: \acrlong{fdr}).}
+
 %\label{fig:figure2}
 \end{figure}% * = no overlapping with text
 
 
+%%
+
+\clearpage
 \begin{figure}[ht]
 
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
     %\centering
-{    \includegraphics[width=13cm]{Rplot_TCGA_HNSCC_CoxHR_CAMK2N1_top3FDRKM.pdf}}
+{    \includegraphics[width=7cm]{Rplot_TCGA_HNSCC_CoxHR_CAMK2N1_top3FDRKM.pdf}}
 {    \caption{A volcano plot of genes in survival analyses of TCGA HNSCC.
 %X axis: unadjusted \protect\textit{p}~value of Kaplan--Meier survival (-log10 transformed).
 %Y axis: multivariate hazard ratio from Cox proportional regression model.
@@ -659,11 +649,12 @@ y-axis: HR of Cox proportional hazard regression model.)
 %%%\label{fig:hazards3}
 \end{figure}
 
+\clearpage
 \begin{figure}[ht]
 
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
    % \centering
-{    \includegraphics[width=13cm]{Rplot_GSE65858_CoxHR_CAMK2N1_top3FDRKM.pdf}}
+{    \includegraphics[width=7cm]{Rplot_GSE65858_CoxHR_CAMK2N1_top3FDRKM.pdf}}
 {    \caption{Volcano plot of genes in survival analyses of GSE65858 cohort.
     % GSE117973 using the same platform GPL10558
     This HNSCC cohort was used for filtering of our candidate genes: \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \textcolor{red}{FCGBP}.
@@ -676,6 +667,8 @@ y-axis: HR of Cox proportional hazard regression model.)
 %%%\label{fig:hazards534}
 \end{figure}
 
+
+\clearpage
 \begin{figure}[ht]
 
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
@@ -856,22 +849,22 @@ FCGBP &
 \section{Discussion}
 
 
-\subsection{The Three Biomarkers in Cancer}
+\subsection*{The Three Biomarkers in Cancer}
 
 
-\subsubsection{The Protein/Pathology Atlas} %still TCGA's RNA-Seq (ok)
+\subsubsection*{The Protein/Pathology Atlas} %still TCGA's RNA-Seq (ok)
 
 
-\subsubsection{Literature Review} % literature (ok)
+\subsubsection*{Literature Review} % literature (ok)
 
 
-\subsection{Feature Selection for Survival Modeling} % Even there are many $X_1 ... X_n$ physical and social features of patients available for survival modelling in the TCGA.
+\subsection*{Feature Selection for Survival Modeling} % Even there are many $X_1 ... X_n$ physical and social features of patients available for survival modelling in the TCGA.
 
 
-\subsection{The Purpose of Sliding-Window Cutoff Selection}
+\subsection*{The Purpose of Sliding-Window Cutoff Selection}
 
 
-\subsection{Technical Considerations}
+\subsection*{Technical Considerations}
 
 
 \subsection{Limitations of the Study}
@@ -911,13 +904,13 @@ TCGA HNSCC and GSE65858 cohorts were applied for identification and validation o
 \subsection{Future Directions in Translational Medicine}
 
 
-\subsubsection{Proteomics Validation}
+\subsubsection*{Proteomics Validation}
 
 
-\subsubsection{Laboratory Validation}
+\subsubsection*{Laboratory Validation}
 
 
-\subsubsection{Cancer Type-Agnostic Study}
+\subsubsection*{Cancer Type-Agnostic Study}
 
 
 \subsubsection{Holistic Cancer Care} 
@@ -950,22 +943,22 @@ Thus, we suggest that electric healthcare records (EHR) should include physical,
 \section{Materials and Methods} % 4
 
 
-\subsection{Patient Cohort} 
+\subsection*{Patient Cohort} 
 
 
-\subsubsection{RNA Sequencing Data} 
+\subsubsection*{RNA Sequencing Data} 
 
 
-\subsubsection{Clinical Data} 
+\subsubsection*{Clinical Data} 
 
 
 \subsection{Cutoff Finder Core Engine}
 
 
-\subsection{Statistical Consideration for Survival Analysis}
+\subsection*{Statistical Consideration for Survival Analysis}
 
 
-\subsection{Biomarker Selection and Validation}
+\subsection*{Biomarker Selection and Validation}
 
 
 \section{Conclusions} % 5
@@ -978,7 +971,7 @@ Thus, we suggest that electric healthcare records (EHR) should include physical,
 \thispagestyle{empty} % No slide header and footer
 
 \bibliographystyle{unsrt}
-\bibliography{sample}
+\bibliography{TCGA_margin_cutoff.bib}
 
 \clearpage
 
@@ -1006,3 +999,49 @@ Thus, we suggest that electric healthcare records (EHR) should include physical,
 %----------------------------------------------------------------------------------------
 %
 \end{document}
+
+
+%%%%
+% spared code
+
+%------------------------------------------------
+
+
+\section*{Verbatim}
+
+How to include a theorem in this presentation:
+\begin{verbatim}
+\mybox{0.8\textwidth}{
+\begin{theorem}[Murphy (1949)]
+Anything that can go wrong, will go wrong.
+\end{theorem}
+}
+\end{verbatim}
+
+\clearpage
+
+%------------------------------------------------
+
+
+
+\subsection*{Figure}
+
+%\clearfloatsetup{figure}
+%\floatsetup[figure]{style=no,capposition=beside,capbesideposition={center,inside},capbesideframe=yes,facing=yes}
+
+\begin{figure}[ht]
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
+{\caption{\texttt{capbesidesep=quad}. I want to thank Sonia. The caption can contain any text but needs to describe the image with enough detail for a reader to completely understand the image.}}
+{\includegraphics[width=0.6\textwidth]{placeholder.jpg}}
+\end{figure}
+%\includegraphics[width=9cm]{placeholder}
+
+%\sidecaptionvpos{c}
+%\caption{I want to thank Sonia.}
+%\end{captionbeside}
+
+
+\clearpage
+
+%------------------------------------------------
+
