@@ -879,31 +879,33 @@ FCGBP &
 
 \begin{figure}[ht]
 
-\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
+\floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.25\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
 {%\widefigure
     %\centering
     
-    \begin{subfigure}[a]{0.5\textwidth}
-    \includegraphics[width=9cm]{RplotH2H_TCGA_GSE65858_CoxHR.pdf}
+    \begin{subfigure}[c]{0.5\textwidth}
+    \includegraphics[width=7.5cm]{RplotH2H_TCGA_GSE65858_CoxHR.pdf}
     \caption{Cox's hazard ratios from TCGA HNSCC and GSE65858 (Pearson's correlation coefficient~\cite{Schober2018}, r = 0.27).}
     \end{subfigure}
 %\hfill
-    \begin{subfigure}[b]{0.2\textwidth}
-    \includegraphics[width=3cm]{Rplot20_correlation_TCGA_GSE65858_CoxHR.pdf}
+    \begin{subfigure}[t]{0.15\textwidth}
+    \includegraphics[width=2.5cm]{Rplot20_correlation_TCGA_GSE65858_CoxHR.pdf}
     \caption{Correlations of Cox's hazard ratios of those 20 significant genes (Pearson's r = 0.68).}
     \end{subfigure}    
 }   
 {    \caption{A head-to-head comparison of Cox's hazard ratios from TCGA HNSCC and GSE65858 datasets.
-TCGA HNSCC and GSE65858 cohorts were applied for identification and validation of the candidate biomarkers in HNSCC.
-    (\textbf{a}) A total of 5404 genes had Cox's hazard ratios from TCGA HNSCC and GSE65858 (Pearson's correlation, r = 0.27).
+%TCGA HNSCC and GSE65858 cohorts were applied for identification and validation of the candidate biomarkers in HNSCC.
+%    (\textbf{a}) A total of 5404 genes had Cox's hazard ratios from TCGA HNSCC and GSE65858
+%(Pearson's correlation, r = 0.27).
     %\acrshort{fdr}-\protect\textit{p}~values of less than 0.05 in TCGA HNSCC.
-    \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, \textcolor{red}{FCGBP}, and 17 other genes (marked in \textcolor{black}{black}) had hazard ratios (HRs) >$1.8$ or <$0.6$.
-    \textcolor{red}{Red spots}: $HR$s > 1.0 in TCGA HNSCC.
-    \textcolor{green}{Green spots}: $HR$s < 1.0 in TCGA HNSCC.
-    Sizes of spots: bigger for Kaplan--Meier \protect\textit{p}~values in TCGA HNSCC. %Please ensure intended meaning is retained.
-    (\textbf{b}) The 20 genes were extracted and shown. The hazard ratios of those genes have a moderate correlation between the two cohorts (Pearson's r = 0.68).
-    (X-axis: Hazard ratios of Cox proportional hazard regression model from TCGA HNSCC;
-    y-axis: Those values from GSE65858; TCGA: \acrlong{tcga}; HNSCC: \acrlong{hnscc}.)
+%    \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, \textcolor{red}{FCGBP}, and 17 other genes (marked in \textcolor{black}{black}) had hazard ratios (HRs) >$1.8$ or <$0.6$.
+%    \textcolor{red}{Red spots}: $HR$s > 1.0 in TCGA HNSCC.
+%    \textcolor{green}{Green spots}: $HR$s < 1.0 in TCGA HNSCC.
+%    Sizes of spots: bigger for Kaplan--Meier \protect\textit{p}~values in TCGA HNSCC. %Please ensure intended meaning is retained.
+%    (\textbf{b}) The 20 genes were extracted and shown. The hazard ratios of those genes have a moderate correlation between the two cohorts
+%(Pearson's r = 0.68).
+%    (X-axis: Hazard ratios of Cox proportional hazard regression model from TCGA HNSCC;
+%    y-axis: Those values from GSE65858; TCGA: \acrlong{tcga}; HNSCC: \acrlong{hnscc}.)
     }}
 %%%\label{fig:hazards_head2head_TCGA_GSE65858}
 \end{figure}
