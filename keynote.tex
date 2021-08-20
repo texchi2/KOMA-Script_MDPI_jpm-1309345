@@ -518,7 +518,7 @@ head and neck squamous cell carcinoma (HNSCC);\\
 the Cancer Genome Atlas (TCGA); \\
 transcriptomic analysis; survival analysis; \\
 \hl{optimal cutoff} for Kaplan--Meier curve; \\
-effect size; hazard ratio in Cox's modelling;\\
+effect size; hazard ratio in Cox's modeling;\\
 \acrfull{CAMK2N1}; \\
 \acrfull{CALML5}; \\
 \acrfull{FCGBP}; \\
@@ -554,7 +554,7 @@ The advantages of applying the TCGA data for cancer biomarker identification inc
 \large Data obtained through the Broad Firebrowse $\acrshort{rest}ful^{*}$ \acrshort{api} with an R software package, \hl{FirebrowseR} (available at \url{https://github.com/mariodeng/FirebrowseR})~\cite{Deng2017}
 
 \subsection{Two Patient Cohorts} 
-\large TCGA's \acrfull{hnscc}: n = 414, for \hl{modelling}\\ %528\\
+\large TCGA's \acrfull{hnscc}: n = 414, for \hl{modeling}\\ %528\\
 \indent{GSE65858 cohorty~\cite{Wichmann2015}: n = 270, for \hl{validation}}%288}
 
 \subsubsection{RNA Sequencing Data} 
@@ -562,7 +562,7 @@ The advantages of applying the TCGA data for cancer biomarker identification inc
 
 
 \subsubsection{The Clinicopathological Data}
-gender, age, clinical tumor size (T), clinical cervical lymph node metastases (N), clinical distant metastasis (M), \hl{pathological surgical margin}, tobacco exposure, and \hl{survival data}.
+gender, age, clinical tumor size (T), clinical cervical lymph node metastases (N), clinical distant metastasis (M), \hl{pathological surgical margin}, tobacco exposure, and \hl{overall survival data}.
 
 \tiny * \acrfull{rest}
 
@@ -656,8 +656,10 @@ The advantages of our workflow---pvalueTex:
 \begin{outline}
 \1 sliding-window cutoff selection
     \2 a serial cut (30th -- 70th percentiles of the cohort)
-    \2 log-rank test for Kaplan--Meier estimates
-    \2 the lowest \textit{p} values in plot
+    \2 log-rank test for Kaplan--Meier (KM) estimates
+    \2 the lowest \textit{p} values in a plot for each gene
+\1  \acrfull{fdr} (<$0.05$) correction~\cite{Benjamini1995a} of KM \textit{p} values
+    \2 to control the type I error of multiple tested 
 \end{outline}
 \end{minipage}
 \begin{minipage}[c]{0.35\linewidth}
@@ -667,10 +669,38 @@ The advantages of our workflow---pvalueTex:
 
 
 \clearpage
+
+\subsection{Survival modeling}
+\large The Cox proportional-hazards regression model~\cite{Cox1972,Andersen1982,Bradburn2003b}\\
+%\noindent{the effect sizes (coefficients, i.e., hazard ratios)}
+$$h(t) = h_0(t) \times exp(\beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + ... + \beta_n X_n)$$
+% natural exponential function => y=e^x
+%\end{flushleft}
+\noindent where
+\begin{outline} % for highlight
+\1 $t$ represents the survival time;
+\1 $h(t)$ is the hazard function determined by a set of n covariates ($X_1...X_n$)---e.g., clinicopathological features
+\1 The coefficients ($\beta_1...\beta_n$) measure the impacts---the effect sizes (i.e., hazard ratios) of covariates;
+\1 The term $h_0$ is called the baseline hazard.
+%\1 A collection of $X_1...X_n$ features from cancer datasets
+\end{outline}
+
+
+%%%
+\clearpage
+
 \subsection{Biomarker Selection and Validation}
+\begin{outline}
 
 
+\1 \large Bonferroni adjustment of the KM \textit{p}~values to control for type I error
+\1 Hazard ratios ($>=1.8$ or $<=0.6$) in both Cox models (univariate and multivariate)
+\1 GSE65858~\cite{Wichmann2015}
+    \2 biomarker selection and validation
+    \2 Kaplan--Meier (FDR-corrected \textit{p}~value) by gene expression cutoffs at their median values
+    \2 Cox's survival analyses 
 
+\end{outline}
 \clearpage
 
 
@@ -998,7 +1028,7 @@ FCGBP &
 %\subsubsection*{Literature Review} % literature (ok)
 
 
-%\subsection*{Feature Selection for Survival Modeling} % Even there are many $X_1 ... X_n$ physical and social features of patients available for survival modelling in the TCGA.
+%\subsection*{Feature Selection for Survival Modeling} % Even there are many $X_1 ... X_n$ physical and social features of patients available for survival modeling in the TCGA.
 
 
 %\subsection*{The Purpose of Sliding-Window Cutoff Selection}
