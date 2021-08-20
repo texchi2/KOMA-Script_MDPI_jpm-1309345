@@ -40,6 +40,8 @@ parskip=half-, % Paragraphs separated by half a line
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Tex
 \maxdeadcycles=1000 % Output loop---200 consecutive dead cycles.
 
+\usepackage{wrapfig} % for wrapfigure, text wrapping figure
+
 \usepackage{todonotes}
 
 \usepackage{floatrow} % for side caption (beside)
@@ -370,8 +372,10 @@ parskip=half-, % Paragraphs separated by half a line
 % 
 \newcommand*{\mytitle}{A Transcriptomic Analysis of Head and Neck Squamous Cell Carcinomas for Prognostic Indications} % old Title Transcriptomic Analysis for Prognostic Value in Head and Neck Squamous Cell Carcinoma
 \newcommand*{\runninghead}{HNSCC Biomarker} % Running head displayed on almost all slides
-\newcommand*{\myauthor}{Tex Li-Hsing Chi} % Presenters name(s)
-\newcommand*{\mydate}{\today} % Presentation date
+\newcommand*{\myauthor}{Li-Hsing (Tex) Chi} % Presenters name(s)
+\newcommand*{\myadvisorM}{Michael Hsiao}
+\newcommand*{\myadvisorJ}{Yu-Chuan (Jack) Li}
+\newcommand*{\mydate}{2021/09/10} %{\today} % Presentation date
 \newcommand*{\myuni}{Taipei Medical University} % University or department
 
 %----------------------------------------------------------------------------------------
@@ -386,7 +390,7 @@ parskip=half-, % Paragraphs separated by half a line
 \thispagestyle{empty} % No slide header and footer
 \begin{tikzpicture}[remember picture,overlay] % Background box
   \node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)
-    [rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\paperheight/2.1,top color=myblue,bottom color=myblue]{}; % Change the height of the box, its colors and position on the page here
+    [rectangle,fill,inner sep=0pt,minimum width=\paperwidth,minimum height=\paperheight/1.7,top color=myblue,bottom color=myblue]{}; % Change the height of the box, its colors and position on the page here
 \end{tikzpicture}
 % Text within the box
 \begin{flushright}
@@ -395,12 +399,13 @@ parskip=half-, % Paragraphs separated by half a line
   {\bfseries\Large\mytitle\par}% Title
   \vspace{0.5cm}
   \normalsize
-  \myauthor\par % Author name
+  Speaker: \myauthor  \hspace{28.7mm} \par % Author name
+  Advisors: \myadvisorM \hspace{3mm} \myadvisorJ\par
   \mydate\par % Date
   \myuni\par
   \vfill
 \end{flushright}
-Chi, L.-H., Wu, A. T. H., Hsiao, M. \& Li, Y.-C. (Jack). Journal of Personalized Medicine, 11, 782 (2021).
+%Chi, L.-H., Wu, A. T. H., Hsiao, M. \& Li, Y.-C. (Jack). Journal of Personalized Medicine, 11, 782 (2021).
 %\cite{Chi2021}
 
 \clearpage
@@ -438,30 +443,63 @@ Chi, L.-H., Wu, A. T. H., Hsiao, M. \& Li, Y.-C. (Jack). Journal of Personalized
 
 \section{Introduction}
 
+%\begin{figure}
+%\end{figure}
+
+
+
+\begin{minipage}[c]{0.30\linewidth}
 \begin{outline}
     \1 Survival analysis of the Cancer Genome Atlas (TCGA) dataset for HNSCC
         \2 gene expression-based prognostic biomarkers
-        \2 a cutoff point is usually used in survival analysis
+        \2 a \hl{cutoff} point is usually used in survival analysis
 \end{outline}
+\end{minipage}%\hspace{2mm}
+%\begin{wrapfigure}{r}{0.3\textwidth}
+\begin{minipage}[c]{0.65\linewidth}
+    \raggedright
+    \hfill\includegraphics[width=8cm]{Figure_1_manuscript_workflow_modify.pdf}
+\end{minipage}
+
+
+
 
 \clearpage
 
 \begin{figure}
-  \begin{minipage}[c]{0.4\linewidth}
-    \centering
-    \includegraphics[height=7.0cm, width=7.5cm]{graphic_abstract_pvalueTex.pdf}%
-%    \caption{A workflow}
+  \begin{minipage}[c]{0.35\linewidth}
+  \begin{picture}(15, 20) % size %(1,0.55038404)%
+\centering
+  \put(5,-65){\includegraphics[width=7.0cm]{graphic_abstract_pvalueTex.pdf}}% X-axis: hyphen to minus sign
+%    \includegraphics[height=7.0cm, width=7.5cm]{graphic_abstract_pvalueTex.pdf}%
+    \captionsetup{labelformat=empty}
+%    \caption{Figure. Mindfulness meditation in \hl{holistic} cancer care}
+    
+  \put(128.5, 78.5){%\fontfamily{qcr}\selectfont
+  \large (1)}
+  \put(178.5, 48.5){%\fontfamily{qcr}\selectfont
+  \large (2)}
+  \put(188.5, 10){%\fontfamily{qcr}\selectfont
+  \large (3)}
+  \put(178.5, -10){%\fontfamily{qcr}\selectfont
+  \large (4)}
+  \put(118.5, -40){%\fontfamily{qcr}\selectfont
+  \large (5)}
+  \put(2,-105){Figure. Mindfulness meditation in \hl{holistic} cancer care}
+  
+  \end{picture}
   \end{minipage}\hfill
-  \begin{minipage}[c]{0.6\linewidth}
+  \begin{minipage}[c]{0.55\linewidth}
     \centering
-    \begin{outline}
-    \1 An in-house workflow---pvalueTex---in Rstudio server
-        \2 data retrieving from TCGA via FirebrowseR package
-        \2 pre-processing and data cleaning
-        \2 feature selection
-        \2 sliding-window cutoff mining engine for Kaplan--Meier survival analysis
-        \2 Cox proportional hazard modeling
-        \2 validation by using the another independent HNSCC dataset (GSE65858)~\cite{Wichmann2015}
+    \begin{outline}[enumerate]
+    \0 An in-house workflow---pvalueTex---in Rstudio server
+        \1 data retrieving from TCGA via FirebrowseR package
+        \1 pre-processing
+            \2 data cleaning
+            \2 feature selection
+        \1 \hl{sliding-window} cutoff mining engine for Kaplan--Meier survival analysis to find a optimal cutoff
+        \1 Cox proportional hazard modeling
+        \1 validation by using the another independent HNSCC dataset (GSE65858)~\cite{Wichmann2015}
 
     \end{outline}
 %    \captionof{table} % by KOMA-script
@@ -480,7 +518,7 @@ head and neck squamous cell carcinoma (HNSCC);\\
 the Cancer Genome Atlas (TCGA); \\
 transcriptomic analysis; survival analysis; \\
 optimal cutoff; \\
-effect size; \\
+effect size; hazard ratio;\\
 \acrfull{CAMK2N1}; \\
 \acrfull{CALML5}; \\
 \acrfull{FCGBP}; \\
@@ -550,7 +588,31 @@ The advantages of our workflow---pvalueTex:
 %% [2011/08/08]
 %%%%%%%
 
+%\section{Materials and Methods}
 
+\section{Materials and Methods} % 4
+
+
+\subsection{Patient Cohort} 
+
+
+\subsubsection{RNA Sequencing Data} 
+
+
+\subsubsection{Clinical Data} 
+
+
+\subsection{Cutoff Finder Core Engine}
+
+
+\subsection{Statistical Consideration for Survival Analysis}
+
+
+\subsection{Biomarker Selection and Validation}
+
+
+
+\clearpage
 
 
 
@@ -864,6 +926,7 @@ FCGBP &
 \end{table}
 \clearpage
 
+
 \section{Discussion}
 
 
@@ -1013,28 +1076,10 @@ Holistic cancer care~\cite{Mehta2019,Iftikhar2021}:
 \end{figure}
 \clearpage
 
-%\section{Materials and Methods} % 4
 
 
-%\subsection*{Patient Cohort} 
 
-
-%\subsubsection*{RNA Sequencing Data} 
-
-
-%\subsubsection*{Clinical Data} 
-
-
-%\subsection{Cutoff Finder Core Engine}
-
-
-%\subsection*{Statistical Consideration for Survival Analysis}
-
-
-%\subsection*{Biomarker Selection and Validation}
-
-
-\section{Conclusions} % 5
+\section*{Conclusions} % 5
 \begin{outline}
 \1 Three biomarker candidates---CAMK2N1, CALML5, and FCGBP---which are all heavily associated with the prognosis of \acrlong{os}.
 \1 The microenvironment of HNSCC, influenced by the mind--brain--body axis~\cite{Hsiao2012}
