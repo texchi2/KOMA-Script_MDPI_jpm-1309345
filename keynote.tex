@@ -483,7 +483,7 @@ effect size; hazard ratio in Cox's modeling;\\
 
 \begin{figure}
   \begin{minipage}[c]{0.35\linewidth}
-  \begin{picture}(15, 20) % size %(1,0.55038404)%
+  \begin{picture}(15, 20) % zero point at (15,20) %(1,0.55038404)%
 \centering
   \put(5,-65){\includegraphics[width=7.0cm]{graphic_abstract_pvalueTex.pdf}}% X-axis: hyphen to minus sign
 %    \includegraphics[height=7.0cm, width=7.5cm]{graphic_abstract_pvalueTex.pdf}%
@@ -793,7 +793,7 @@ The top 3 genes with prognostic impacts on HNSCC. Selection criteria (fit all):\
 
 %%
 \thispagestyle{headings}
-\markright{Results\hfill Step 1: FDR \hfill}
+\markright{Results\hfill Step 1: FDR-adjustment \hfill}
 
 
 \begin{figure}[ht]
@@ -815,16 +815,21 @@ The top 3 genes with prognostic impacts on HNSCC. Selection criteria (fit all):\
 
 
 %% ab
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[t]{0.4\textwidth}
 %\subfloat[Subfigure 1 list of figures text][(a)]{
 %        \vspace*{-5mm}
 %        \caption{~}
 %        \fbox{
         \includegraphics[width=6.5cm]{Rplot02_FDRP_uniHR.pdf}  %}    %{Rplot02_rawP_uniHR.pdf}
 
-    \end{subfigure} \hfill
+    \end{subfigure} %\hfill
+    \begin{subfigure}[t]{0.10\textwidth}
+        \begin{picture}(0,0) % lower left corner
+            \put(10,130){\large \textcolor{red}{HR 1.8}} \put(10,40){\large \textcolor{green}{HR 0.6}}
+        \end{picture}
+    \end{subfigure}
 %\subfloat[Subfigure 1 list of figures text][(b)]{
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[t]{0.4\textwidth}
 %        \caption{}
         \includegraphics[width=6.5cm]{Rplot02_FDRP_multiHR.pdf}
 %        \caption{}
@@ -837,8 +842,7 @@ The top 3 genes with prognostic impacts on HNSCC. Selection criteria (fit all):\
 \captionsetup{labelformat=empty}
 \caption{
 %The effect size was estimated by Cox's hazard ratio.
-Step 1: selection by Kaplan--Meier (KM) survival \textit{p}~value, 
-(\textbf{a}) univariate HR versus FDR-adjusted \textit{p}~value; (\textbf{b}) multivariate HR versus FDR-adjusted \textit{p}~value.}
+Step 1: biomarker selection by Cox univariate/multivariate HR and \hl{FDR-adjusted} Kaplan--Meier (KM) survival \textit{p}~value.}
 
 \end{figure}
 
@@ -846,21 +850,25 @@ Step 1: selection by Kaplan--Meier (KM) survival \textit{p}~value,
 
 
 \thispagestyle{headings}
-\markright{Results\hfill Step 2: Bonferroni \hfill}
+\markright{Results\hfill Step 2: Bonferroni-adjustment \hfill}
 
 
 \begin{figure}
 %% cd
 %\begin{adjustwidth}{-3em}{0em}
 %\subfloat[Subfigure 1 list of figures text][(c)]{
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.4\textwidth}
 %        \caption{}
         \includegraphics[width=6.5cm]{Rplot02_BonferroniP_uniHR.pdf}
 %        \caption{}
-    \end{subfigure} \hfill
-%\qquad
+    \end{subfigure} %\hfill
+    \begin{subfigure}[t]{0.10\textwidth}
+        \begin{picture}(0,0) % lower left corner
+            \put(10,130){\large \textcolor{red}{HR 1.8}} \put(10,40){\large \textcolor{green}{HR 0.6}}
+        \end{picture}
+    \end{subfigure}
 %\subfloat[Subfigure 1 list of figures text][(d)]{
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.4\textwidth}
 %        \caption{}
         \includegraphics[width=6.5cm]{Rplot02_BonferroniP_multiHR.pdf}
 %        \caption{}
@@ -870,8 +878,7 @@ Step 1: selection by Kaplan--Meier (KM) survival \textit{p}~value,
 \captionsetup{labelformat=empty}
 \caption{
 %After stringent restriction by Bonferroni-adjusted \textit{p}~values and Cox's HR, a few top-ranked genes were acquired by
-Step 2: filtering by Bonferroni-corrected KM \textit{p}~value, 
-(\textbf{c}) univariate HR versus \textit{p}~value; (\textbf{d}) multivariate HR versus \textit{p}~value.}
+Step 2: filtering by Cox univariate/multivariate HR and \hl{Bonferroni-corrected} Kaplan--Meier (KM) survival \textit{p}~value.}
 %(TCGA: \acrlong{tcga}; HR: hazard ratio; FDR: \acrlong{fdr}).}
 
 %\label{fig:figure2}
@@ -883,14 +890,17 @@ Step 2: filtering by Bonferroni-corrected KM \textit{p}~value,
 \clearpage
 
 \thispagestyle{headings}
-\markright{Results\hfill   \hfill}
+\markright{Results\hfill 20 preliminary biomarkers  \hfill}
 
 \begin{figure}[ht]
 
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
     %\centering
 {    \includegraphics[width=9cm]{Rplot_TCGA_HNSCC_CoxHR_CAMK2N1_top3FDRKM.pdf}}
-{\captionsetup{labelformat=empty}    \caption{A volcano plot of 20 candidate genes in TCGA HNSCC.
+{\captionsetup{labelformat=empty}    
+\caption{A volcano plot of 20 candidate genes in TCGA HNSCC.\\
+    \textcolor{red}{Red spots}: $HR$ > 1.0;\\
+    \textcolor{green}{Green spots}: $HR$ < 1.0.\\
 %X axis: unadjusted \protect\textit{p}~value of Kaplan--Meier survival (-log10 transformed).
 %Y axis: multivariate hazard ratio from Cox proportional regression model.
 %Dotted line: significant Bonferroni corrected \protect\textit{p}~value. 
@@ -898,28 +908,31 @@ Step 2: filtering by Bonferroni-corrected KM \textit{p}~value,
 %    This cohort was applied for exploration of the candidate biomarkers.
 %    A total of 9416 genes had %\acrshort{fdr}-
 %    unadjusted \protect\textit{p}~values of less than 0.05.
-    \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, \textcolor{red}{FCGBP}, and 17 other genes (marked in \textcolor{black}{black square}) had hazard ratios (HRs) >$1.8$ or <$0.6$.
+    \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, \textcolor{red}{FCGBP}, and 17 other genes (marked in \textcolor{black}{black square}) had \hl{hazard ratios (HRs) >$1.8$ or <$0.6$}.
 %    The 22 genes, listed on the side, had hazard ratios between 0.6 and 1.5.
-    \textcolor{red}{Red spots}: $HR$ > 1.0.
-    \textcolor{green}{Green spots}: $HR$ < 1.0.
 %    (X-axis: Kaplan--Meier survival estimates, with \acrshort{fdr}-adjusted \protect\textit{p}~values (log10 transformed);
 %y-axis: HR of Cox proportional hazard regression model.)
     }}
 %%%\label{fig:hazards3}
 \end{figure}
 
-\clearpage
-\begin{figure}[ht]
 
+%
+\clearpage
+
+\thispagestyle{headings}
+\markright{Results\hfill Three candidate biomarkers  \hfill}
+
+\begin{figure}[ht]
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
    % \centering
 {    \includegraphics[width=9cm]{Rplot_GSE65858_CoxHR_CAMK2N1_top3FDRKM.pdf}}
 {\captionsetup{labelformat=empty}    \caption{Volcano plot of genes in survival analyses of a validation (GSE65858) cohort.
     % GSE117973 using the same platform GPL10558
-The candidate genes---\textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \textcolor{red}{FCGBP}---was confirmed.
+The candidate genes---\textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \textcolor{red}{FCGBP}---was confirmed.\\
 %    In total, 534 genes had \acrshort{fdr}-adjusted \protect\textit{p}~values less than 0.05
-    \textcolor{red}{Red spots}: hazard ratios are greater than 1.0;
-    \textcolor{green}{Green spots}: hazard ratios are under 1.0.
+    (\textcolor{red}{Red spots}: hazard ratios are greater than 1.0;\\
+    \textcolor{green}{Green spots}: hazard ratios are under 1.0.)
 %    The 22 genes, listed on the side, had hazard ratios >$1.8$ or <$0.6$.
 %    (X-axis: Kaplan--Meier survival estimates, with \acrshort{fdr}-adjusted \protect\textit{p}~values, log10 transformed; y-axis: the hazard ratio (HR) under the Cox proportional hazard regression model).
     }}
@@ -928,6 +941,8 @@ The candidate genes---\textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \te
 
 
 \clearpage
+
+
 \begin{figure}[ht]
 
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.45\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
@@ -952,8 +967,8 @@ The candidate genes---\textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \te
 }
 %\hfill
 {\captionsetup{labelformat=empty}
-\caption{Kaplan--Meier survival analyses, during cutoff finding.
-The Kaplan--Meier curves of (\textbf{a}) CAMK2N1, (\textbf{c}) CALML5, and (\textbf{e}) FCGBP with optimal \protect\textit{p}~values. 
+\caption{Kaplan--Meier (KM) survival analyses, during \hl{cutoff finding (within 30\%--70\% quantile)}.
+The KM curves of (\textbf{a}) CAMK2N1, (\textbf{c}) CALML5, and (\textbf{e}) FCGBP with optimal \protect\textit{p}~values. 
 %((b) the cutoffs derived from it's cumulative \protect\textit{p}~value plot).
 %(c) Kaplan--Meier plot of IL19 under optimal \protect\textit{p}~value;
 %((d) the cutoffs derived from it's cumulative \protect\textit{p}~value plot).
@@ -969,10 +984,15 @@ The cutoffs in the cumulative FDR-adjusted \protect\textit{p}~value plots of (\t
 
 %% table 1
 \clearpage
+%
+\thispagestyle{headings}
+\markright{Results\hfill Overall survival of CAMK2N1  \hfill}
+
 \begin{table}[H] 
 %\centering
 \captionsetup{labelformat=empty}
-\captionabove{Univariate/multivariate Cox proportional hazard regression analyses on overall survival time of CAMK2N1 gene expression in HNSCC.}
+\captionabove{%Univariate/multivariate Cox proportional hazard regression analyses on overall survival time of \hl{CAMK2N1} gene expression in HNSCC. 
+Clinical tumor size, surgical margin involvement, and CAMK2N1 expression are independent prognostic factors in TCGA HNSCC.}
 
 %%%\label{table:table2}
 \arrayrulecolor[rgb]{0.255,0.255,0.255}
@@ -997,7 +1017,7 @@ The cutoffs in the cumulative FDR-adjusted \protect\textit{p}~value plots of (\t
 \cline{2-8}
                                         & $>65y$                                                                                 & 1.329                                                                          & 0.990--1.784                                                                   & 0.058                                                                         & 1.391                                                                          & 1.025--1.888                                                                   & \textcolor{red}{0.034}                                                         \\ 
 \hline
-\multirow{2}{*}{Clinical T Status}      & {\cellcolor[rgb]{0.62,0.812,0.878}}T1+T2                                            & {\cellcolor[rgb]{0.62,0.812,0.878}}1                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}1                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                            \\ 
+\multirow{2}{*}{\textcolor{red}{Clinical T Status}}      & {\cellcolor[rgb]{0.62,0.812,0.878}}T1+T2                                            & {\cellcolor[rgb]{0.62,0.812,0.878}}1                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}1                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                            \\ 
 \cline{2-8}
                                         & T3+T4                                                                               & 1.409                                                                          & 1.028--1.931                                                                   & \textcolor{red}{0.033}                                                        & 1.982                                                                          & 1.048--3.745                                                                   & \textcolor{red}{0.035}                                                         \\ 
 \hline
@@ -1013,7 +1033,7 @@ The cutoffs in the cumulative FDR-adjusted \protect\textit{p}~value plots of (\t
 \cline{2-8}
                                         & Stage III+IV                                                                        & 1.245                                                                          & 0.882--1.759                                                                   & 0.213                                                                         & 0.621                                                                          & 0.287--1.343                                                                   & 0.226                                                                          \\ 
 \hline
-\multirow{2}{*}{Surgical Margin status} & {\cellcolor[rgb]{0.62,0.812,0.878}}Negative                                         & {\cellcolor[rgb]{0.62,0.812,0.878}}1                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}1                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                            \\ 
+\multirow{2}{*}{\textcolor{red}{Surgical Margin status}} & {\cellcolor[rgb]{0.62,0.812,0.878}}Negative                                         & {\cellcolor[rgb]{0.62,0.812,0.878}}1                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}1                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                            \\ 
 \cline{2-8}
                                         & Positive                                                                            & 1.591                                                                          & 1.155--2.191                                                                   & \textcolor{red}{0.004}                                                        & 1.631                                                                          & 1.182--2.250                                                                   & \textcolor{red}{0.003}                                                         \\ 
 \hline
@@ -1021,7 +1041,7 @@ The cutoffs in the cumulative FDR-adjusted \protect\textit{p}~value plots of (\t
 \cline{2-8}
                                         & High                                                                                & 1.364                                                                          & 1.008--1.844                                                                   & \textcolor{red}{0.044}                                                        & 1.363                                                                          & 0.990--1.875                                                                   & 0.058                                                                          \\ 
 \hline
-\multirow{2}{*}{Gene Expression}                & {\cellcolor[rgb]{0.62,0.812,0.878}}Low                                              & {\cellcolor[rgb]{0.62,0.812,0.878}}1                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}1                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                            \\ 
+\multirow{2}{*}{\textcolor{red}{Gene Expression}}                & {\cellcolor[rgb]{0.62,0.812,0.878}}Low                                              & {\cellcolor[rgb]{0.62,0.812,0.878}}1                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}1                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                           & {\cellcolor[rgb]{0.62,0.812,0.878}}                                            \\ 
 \cline{2-8}
                                         & High                                                                                & 2.101                                                                          & 1.572--2.809                                                                   & \multicolumn{1}{c|}{\textcolor{red}{\textless{} 0.001}}                                     & 2.007                                                                          & 1.490--2.704                                                                   & \multicolumn{1}{c|}{\textcolor{red}{\textless{} 0.001}}                                      \\ 
 %\hline
@@ -1032,11 +1052,11 @@ The cutoffs in the cumulative FDR-adjusted \protect\textit{p}~value plots of (\t
 \end{tabular}
 } % end of \resizebox
 
-\pbox{0.7\columnwidth}{\footnotesize {
+\pbox{0.6\columnwidth}{\footnotesize {
 (OS: overall survival;
 HR: hazard ratio;
 CI95\%: 95\% confidence interval;
-\protect\textit{p}~value significant code is denoted: red \textless{} 0.05).} %; *** \textless{} 0.001).}                              
+\protect\textit{p}~value significant code is denoted: \textcolor{red}{red \textless{} 0.05}).} %; *** \textless{} 0.001).}                              
 }
 %\arrayrulecolor{black}
 \end{table}
