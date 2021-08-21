@@ -427,6 +427,19 @@ parskip=half-, % Paragraphs separated by half a line
 
 \small\tableofcontents % Change the font size and print the table of contents - it may be useful to shrink the font size further if the presentation is full of sections
 % To exclude sections/subsections from the table of contents, put an asterisk after \(sub)section like so: \section*{Section Name}
+%\clearpage
+
+
+Keyword:\\
+head and neck squamous cell carcinoma (HNSCC);\\
+the Cancer Genome Atlas (TCGA); \\
+transcriptomic analysis; survival analysis; \\
+\hl{optimal cutoff} for Kaplan--Meier curve; \\
+effect size; hazard ratio in Cox's modeling;\\
+\acrfull{CAMK2N1}; \\
+\acrfull{CALML5}; \\
+\acrfull{FCGBP}; \\
+\hl{mindfulness meditation}
 
 \clearpage
 
@@ -512,19 +525,6 @@ parskip=half-, % Paragraphs separated by half a line
   \end{minipage}
 \end{figure}
 
-\clearpage
-
-
-Keyword:\\
-head and neck squamous cell carcinoma (HNSCC);\\
-the Cancer Genome Atlas (TCGA); \\
-transcriptomic analysis; survival analysis; \\
-\hl{optimal cutoff} for Kaplan--Meier curve; \\
-effect size; hazard ratio in Cox's modeling;\\
-\acrfull{CAMK2N1}; \\
-\acrfull{CALML5}; \\
-\acrfull{FCGBP}; \\
-\hl{mindfulness meditation}
 
 
 
@@ -569,7 +569,7 @@ gender, age, clinical tumor size (T), clinical cervical lymph node metastases (N
 \tiny * \acrfull{rest}
 
 \clearpage
-\subsubsection{Demographic data}
+\subsubsection*{Demographic data}
 % a table
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -709,10 +709,91 @@ $$h(t) = h_0(t) \times exp(\beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + ... + \beta
 
 \section{Results}
 
+% top 3 genes
+\thispagestyle{headings}
+\markright{Results \hfill FDR then Bonferroni \hfill}
+
+\begin{table}[H] 
+%\centering
+%\caption{The top 3 genes with prognostic impacts on HNSCC.}% (ranked by Bonferroni-adjusted \protect\textit{p}~values}
+
+%%%\label{tab:newTable1}
+\resizebox{0.9\linewidth}{!}{% \textwidth
+\begin{tabular}{|l|l|l|c|c|c|c|c|c|}
+\noalign{\hrule height 1.0pt}
+\multicolumn{1}{|c|}{} &
+  \multicolumn{2}{c|}{} &
+  \multicolumn{2}{c|}{\textbf{Kaplan--Meier Survival}} &
+  \multicolumn{2}{c|}{\textbf{Cox Univariate}} &
+  \multicolumn{2}{c|}{\textbf{Cox Multivariate}} \\ \cline{4-9} 
+\multicolumn{1}{|l|}{\multirow{-2}{*}{\textbf{Gene ID}}} &
+  \multicolumn{2}{l|}{\multirow{-2}{*}{\textbf{Gene Descriptio}n}} &
+  \begin{tabular}[c]{@{}c@{}}\textbf{FDR}\\ \textbf{\protect\textit{p}~Value}\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}\textbf{Bonferroni}\\ \textbf{\protect\textit{p}~Value}\end{tabular} &
+  \textbf{HR *} &
+  \textbf{CI95\%} &
+  \textbf{HR *} &
+  \textbf{CI95\%} \\ 
+  \hline
+CAMK2N1 &
+  \multicolumn{2}{l|}{\begin{tabular}[c]{@{}l@{}}calcium/calmodulin-\\ dependent protein\\ kinase II inhibitor 1\end{tabular}} &
+  \num{1.63e-5} & %2.9e-7} &
+  0.002 &
+  2.101 &
+  1.572--2.809 &
+  2.007 &
+  1.490--2.704 \\ \hline
+CALML5 &
+  \multicolumn{2}{l|} {\acrlong{CALML5}} &
+   \num{1.97e-4} & %\num{6.54e-6} & %3.7e-7} &
+   0.039 &
+   0.51 &
+   0.379--0.686 &
+   0.493 &
+   0.364--0.667 \\ \hline
+FCGBP &
+  \multicolumn{2}{l|}{\begin{tabular}[c]{@{}l@{}}Fc fragment of\\  IgG binding protein\end{tabular}} &
+   \num{4.83e-5} & %1.2e-6} &
+   0.008 &
+   0.484 &
+   0.359--0.653 &
+   0.496 &
+   0.366--0.674 \\ 
+\noalign{\hrule height 1.0pt}
+%\multicolumn{9}{|l|}{} \\
+%\multicolumn{9}{|l|}%{\multirow{-0}{*}
+%{\begin{tabular}[c]{@{}l@{}}
+%
+%\end{tabular}
+%%}\\ % within \multirow
+%} \\ % within \multicolumn
+%\hline
+%\multicolumn{9}{|l|}{ \\ \hline
+
+\end{tabular}%
+}
+\pbox{0.8\columnwidth}{\footnotesize
+~\\
+The top 3 genes with prognostic impacts on HNSCC. Selection criteria (fit all):\\
+(1) Kaplan--Meier Bonferroni-adjusted~\hl{\textit{p} \textless~0.05} in TCGA; \\
+(2) Cox's univariate and multivariate \hl{HR \textgreater{}= 1.8 or \textless{}= 0.6} in both TCGA's HNSCC and GSE65858 cohorts.\\
+%(3) Cox's univariate and multivariate HR \textgreater{}= 1.8 or \textless{}= 0.6 in GSE65858 cohort.\\
+*~Cox's model: \hl{\textit{p} \textless 0.001}\\
+(HR: hazard ratio; CI95\%: 95\% confidence interval; FDR: \acrlong{fdr})
+}
+
+\end{table}
+%\clearpage
 \clearpage
 
+
+
+
+
+
+%%
 \thispagestyle{headings}
-\markright{Results\hfill \textit{p} value plots \hfill}
+\markright{Results\hfill Step 1: FDR \hfill}
 
 
 \begin{figure}[ht]
@@ -761,6 +842,12 @@ Step 1: selection by Kaplan--Meier (KM) survival \textit{p}~value,
 \end{figure}
 
 \clearpage
+
+
+\thispagestyle{headings}
+\markright{Results\hfill Step 2: Bonferroni \hfill}
+
+
 \begin{figure}
 %% cd
 %\begin{adjustwidth}{-3em}{0em}
@@ -792,6 +879,10 @@ Step 2: filtering by Bonferroni corrected KM \textit{p}~value,
 %%
 
 \clearpage
+
+\thispagestyle{headings}
+\markright{Results\hfill   \hfill}
+
 \begin{figure}[ht]
 
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
@@ -950,74 +1041,7 @@ CI95\%: 95\% confidence interval;
 
 %%%%
 \clearpage
-\begin{table}[H] 
-%\centering
-\caption{The top 3 genes with prognostic impacts on HNSCC.}% (ranked by Bonferroni-adjusted \protect\textit{p}~values}
 
-%%%\label{tab:newTable1}
-\resizebox{0.9\linewidth}{!}{% \textwidth
-\begin{tabular}{|l|l|l|c|c|c|c|c|c|}
-\noalign{\hrule height 1.0pt}
-\multicolumn{1}{|c|}{} &
-  \multicolumn{2}{c|}{} &
-  \multicolumn{2}{c|}{\textbf{Kaplan--Meier Survival}} &
-  \multicolumn{2}{c|}{\textbf{Cox Univariate}} &
-  \multicolumn{2}{c|}{\textbf{Cox Multivariate}} \\ \cline{4-9} 
-\multicolumn{1}{|l|}{\multirow{-2}{*}{\textbf{Gene ID}}} &
-  \multicolumn{2}{l|}{\multirow{-2}{*}{\textbf{Gene Descriptio}n}} &
-  \begin{tabular}[c]{@{}c@{}}\textbf{FDR}\\ \textbf{\protect\textit{p}~Value}\end{tabular} &
-  \begin{tabular}[c]{@{}c@{}}\textbf{Bonferroni}\\ \textbf{\protect\textit{p}~Value}\end{tabular} &
-  \textbf{HR *} &
-  \textbf{CI95\%} &
-  \textbf{HR *} &
-  \textbf{CI95\%} \\ 
-  \hline
-CAMK2N1 &
-  \multicolumn{2}{l|}{\begin{tabular}[c]{@{}l@{}}calcium/calmodulin-\\ dependent protein\\ kinase II inhibitor 1\end{tabular}} &
-  \num{1.63e-5} & %2.9e-7} &
-  0.002 &
-  2.101 &
-  1.572--2.809 &
-  2.007 &
-  1.490--2.704 \\ \hline
-CALML5 &
-  \multicolumn{2}{l|} {\acrlong{CALML5}} &
-   \num{1.97e-4} & %\num{6.54e-6} & %3.7e-7} &
-   0.039 &
-   0.51 &
-   0.379--0.686 &
-   0.493 &
-   0.364--0.667 \\ \hline
-FCGBP &
-  \multicolumn{2}{l|}{\begin{tabular}[c]{@{}l@{}}Fc fragment of\\  IgG binding protein\end{tabular}} &
-   \num{4.83e-5} & %1.2e-6} &
-   0.008 &
-   0.484 &
-   0.359--0.653 &
-   0.496 &
-   0.366--0.674 \\ 
-\noalign{\hrule height 1.0pt}
-%\multicolumn{9}{|l|}{} \\
-%\multicolumn{9}{|l|}%{\multirow{-0}{*}
-%{\begin{tabular}[c]{@{}l@{}}
-%
-%\end{tabular}
-%%}\\ % within \multirow
-%} \\ % within \multicolumn
-%\hline
-%\multicolumn{9}{|l|}{ \\ \hline
-
-\end{tabular}%
-}
-\pbox{0.8\columnwidth}{\footnotesize Selection criteria (fit all): 
-(1) Kaplan--Meier Bonferroni-adjusted \protect\textit{p} \textless~0.05; 
-(2) Cox's univariate and multivariate HR \textgreater{}= 1.8 or \textless{}= 0.6 in TCGA cohort; 
-(3) Cox's univariate and multivariate HR \textgreater{}= 1.8 or \textless{}= 0.6 in GSE65858 cohort.\\
-*~Cox's model: \protect\textit{p} \textless 0.001
-(HR: hazard ratio; CI95\%: 95\% confidence interval; FDR: \acrlong{fdr}).}
-
-\end{table}
-\clearpage
 
 
 \section{Discussion}
