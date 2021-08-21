@@ -585,9 +585,10 @@ Participants    & 414   & 270\\ \hline
 Gender (females) & 26.9\% & 17.0\% \\ \hline
 Median age       & 61 y/o       & 58 y/o      \\ \hline
 Stage I/II       & 20.7\%          & 19.0\%      \\ \hline
+\hl{Oropharyngeal} site  & 1.7\% & 37.8\%    \\ \hline
 Smokers          & 97.5\%       & 82.2\%      \\ \hline
 Alcohol          & 67.6\%       & 88.5\%      \\ \hline
-HPV(-)           & 82.1\%       & 84.9\%      \\ \hline
+%HPV(-)           & 82.1\%       & 84.9\%      \\ \hline
 \end{tabular}%
 }
 \end{table}
@@ -947,7 +948,7 @@ Filtering by Cox univariate/multivariate HR and \hl{Bonferroni-corrected} Kaplan
     %\centering
 {    \includegraphics[width=9cm]{Rplot_TCGA_HNSCC_CoxHR_CAMK2N1_top3FDRKM.pdf}}
 {\captionsetup{labelformat=empty}    
-\caption{A volcano plot of preliminary candidate genes in TCGA HNSCC.\\
+\caption{A volcano plot of preliminary candidate genes in \hl{HNSCC (TCGA)}.\\
     \textcolor{red}{Red spots}: HR > 1.0;\\
     \textcolor{green}{Green spots}: HR < 1.0;\\
     \textcolor{red}{Red dash line}: FDR \textit{p} = 0.05.\\
@@ -958,7 +959,7 @@ Filtering by Cox univariate/multivariate HR and \hl{Bonferroni-corrected} Kaplan
 %    This cohort was applied for exploration of the candidate biomarkers.
 %    A total of 9416 genes had %\acrshort{fdr}-
 %    unadjusted \protect\textit{p}~values of less than 0.05.
-    \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, \textcolor{red}{FCGBP}, and  other genes (marked in \textcolor{black}{black square}) had \hl{hazard ratios (HRs) >$1.8$ or <$0.6$} and \hl{Bonferroni-adjusted KM \textit{p} values < $0.05$}.
+    \textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, \textcolor{red}{FCGBP}, and  other genes (marked in \textcolor{black}{black square}) had \hl{hazard ratios (HRs)} >$1.8$ or <$0.6$ and \hl{Bonferroni-adjusted} KM \textit{p} values $< 0.05$.
 %    The 22 genes, listed on the side, had hazard ratios between 0.6 and 1.5.
 %    (X-axis: Kaplan--Meier survival estimates, with \acrshort{fdr}-adjusted \protect\textit{p}~values (log10 transformed);
 %y-axis: HR of Cox proportional hazard regression model.)
@@ -977,7 +978,7 @@ Filtering by Cox univariate/multivariate HR and \hl{Bonferroni-corrected} Kaplan
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
    % \centering
 {    \includegraphics[width=9cm]{Rplot_GSE65858_CoxHR_CAMK2N1_top3FDRKM.pdf}}
-{\captionsetup{labelformat=empty}    \caption{Volcano plot of genes in survival analyses of a validation (GSE65858) cohort.
+{\captionsetup{labelformat=empty}    \caption{Volcano plot of genes in survival analyses of a validation (\hl{GSE65858}) cohort.
     % GSE117973 using the same platform GPL10558
 The candidate genes---\textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \textcolor{red}{FCGBP}---was confirmed.\\
 %    In total, 534 genes had \acrshort{fdr}-adjusted \protect\textit{p}~values less than 0.05
@@ -1000,7 +1001,7 @@ The candidate genes---\textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \te
 %\centering
 \captionsetup{labelformat=empty}
 \captionabove{%Univariate/multivariate Cox proportional hazard regression analyses on overall survival time of \hl{CAMK2N1} gene expression in HNSCC. 
-Clinical tumor size, surgical margin involvement, and CAMK2N1 expression are independent prognostic factors in TCGA HNSCC.}
+Clinical tumor size, surgical margin involvement, and CAMK2N1 expression are independent prognostic factors in HNSCC (TCGA) cohort.}
 
 %%%\label{table:table2}
 \arrayrulecolor[rgb]{0.255,0.255,0.255}
@@ -1098,6 +1099,12 @@ CI95\%: 95\% confidence interval;
 
 
 \subsection{Limitations of the Study}
+A high-quality HNSCC dataset (with protein-coding gene expression and survival data, $n$ > 500) is not easy to find in the GEO database.
+
+
+%
+\thispagestyle{headings}
+\markright{Discussion \hfill Heterogeneity of datasets \hfill}
 
 \begin{figure}[ht]
 
@@ -1112,10 +1119,11 @@ CI95\%: 95\% confidence interval;
 %\hfill
     \begin{subfigure}[t]{0.15\textwidth}
     \includegraphics[width=2.5cm]{Rplot20_correlation_TCGA_GSE65858_CoxHR.pdf}
-    \caption{Correlations of Cox's hazard ratios of those 20 significant genes.}% (Pearson's r = 0.68).}
+    \caption{Correlations of Cox's hazard ratios of those preliminary candidate genes.}% (Pearson's r = 0.68).}
     \end{subfigure}    
 }   
-{\captionsetup{labelformat=empty}    \caption{A head-to-head comparison of Cox's hazard ratios from the two datasets (moderate correlation, Pearson's r = 0.68).
+{\captionsetup{labelformat=empty}    
+\caption{A head-to-head comparison of Cox's hazard ratios from the two datasets (moderate correlation, Pearson's r = 0.68).
 %(Pearson's r = 0.68).
 %TCGA HNSCC and GSE65858 cohorts were applied for identification and validation of the candidate biomarkers in HNSCC.
 %    (\textbf{a}) A total of 5404 genes had Cox's hazard ratios from TCGA HNSCC and GSE65858
@@ -1133,6 +1141,7 @@ CI95\%: 95\% confidence interval;
 %%%\label{fig:hazards_head2head_TCGA_GSE65858}
 \end{figure}
 
+\clearpage
 
 %\subsection{Future Directions in Translational Medicine}
 
@@ -1145,8 +1154,37 @@ CI95\%: 95\% confidence interval;
 
 %\subsubsection*{Cancer Type-Agnostic Study}
 
+\subsection{Limitations of Current HNSCC Therapy}
 
-\subsection{Holistic Cancer Care} 
+\thispagestyle{headings}
+\markright{Discussion \hfill Poor Survival Rate of HNSCC patients \hfill}
+
+\begin{minipage}[c]{0.40\linewidth}
+\begin{outline}
+    \1 Despite the improvements in those interventions, the survival of \acrshort{hnscc} has improved only marginally over the past decade worldwide~\cite{hpa2019}.
+    \1 The five-year survival rate is under \hl{60\%}.
+    \1 To find more \hl{unknown pieces of puzzle}, which impact on survival.
+\end{outline}
+\end{minipage}%\hspace{2mm}
+%\begin{wrapfigure}{r}{0.3\textwidth}
+\begin{minipage}[c]{0.55\linewidth}
+    \raggedright
+    \hfill\includegraphics[width=7cm]{KMplot_CAMK2N1.pdf}
+\end{minipage}
+
+
+
+
+\clearpage
+
+
+
+\subsubsection{Holistic Cancer Care} 
+
+\thispagestyle{headings}
+\markright{Discussion \hfill Holistic Cancer Care \hfill}
+
+The unknown pieces of puzzle
 
 \begin{figure}[ht]
 
@@ -1250,6 +1288,7 @@ Holistic cancer care~\cite{Mehta2019,Iftikhar2021}:
 
 \1 Good using placebo effect
     \2 the confidence might promote healing through a mind--brain--body connection manner
+\1 More holistic features in HNSCC dataset
 \1 Mindfulness meditation is helpful to cancer patients
     \2 confess for not taking care of their bodies and spirits in the past
     \2 give sincere thanks for their physical body's hard work
