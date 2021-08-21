@@ -115,7 +115,7 @@ def find_fig_str(text_file_path, fig_ref):
                 to_write = line
                 # add placement specifications [ht], and \floatbox for presentation in KOMO-script:
                 if line.startswith(r"\begin{figure}"):
-                    to_write = re.sub(r'\[([\w]+)\]', r'[ht]', line) + '\n' + r'\\floatbox[{\\capbeside\\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\\linewidth,capbesidesep=quad}}]{figure}[\\FBwidth]' + '\n'
+                    to_write = re.sub(r'\[([\w]+)\]', r'[ht]', line) + '\n' + '\\floatbox[{\\capbeside\\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\\linewidth,capbesidesep=quad}}]{figure}[\\FBwidth]' + '\n'
                 # comment label
                 # if line.startswith(r'\label{'):   # 7 \label in main.tex
                 if re.match(r'[\t\s]?\\label{fig:',line):  # [\t\s]?
@@ -123,7 +123,7 @@ def find_fig_str(text_file_path, fig_ref):
                 # add \caption to make it fill the whole slide {} under \floatbox
                          # '{\caption{...}}' + '\n' + 
                 if re.match(r'[\t\s]?\\caption',line): # [b]?caption for \floatbox
-                    to_write = '{' + line + '} \n'
+                    to_write = '{\captionsetup{labelformat=empty} ' + line + '} \n'
                 if re.match(r'[\t\s]?\\bcaption',line): # for \floatbox
                     to_write = '*** check *** {' + re.sub(r'bcaption',r'caption',line) + '} \n'
                 # replace figure width to make it fill the whole slide                         

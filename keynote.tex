@@ -834,6 +834,7 @@ The top 3 genes with prognostic impacts on HNSCC. Selection criteria (fit all):\
 % ,clip,keepaspectratio, ,height=6.5cm
 %\vspace{0.3cm}
 
+\captionsetup{labelformat=empty}
 \caption{
 %The effect size was estimated by Cox's hazard ratio.
 Step 1: selection by Kaplan--Meier (KM) survival \textit{p}~value, 
@@ -866,9 +867,10 @@ Step 1: selection by Kaplan--Meier (KM) survival \textit{p}~value,
     \end{subfigure}
  % end of {\includegraphics}
 
+\captionsetup{labelformat=empty}
 \caption{
 %After stringent restriction by Bonferroni-adjusted \textit{p}~values and Cox's HR, a few top-ranked genes were acquired by
-Step 2: filtering by Bonferroni corrected KM \textit{p}~value, 
+Step 2: filtering by Bonferroni-corrected KM \textit{p}~value, 
 (\textbf{c}) univariate HR versus \textit{p}~value; (\textbf{d}) multivariate HR versus \textit{p}~value.}
 %(TCGA: \acrlong{tcga}; HR: hazard ratio; FDR: \acrlong{fdr}).}
 
@@ -888,7 +890,7 @@ Step 2: filtering by Bonferroni corrected KM \textit{p}~value,
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
     %\centering
 {    \includegraphics[width=9cm]{Rplot_TCGA_HNSCC_CoxHR_CAMK2N1_top3FDRKM.pdf}}
-{    \caption{A volcano plot of 20 candidate genes in TCGA HNSCC.
+{\captionsetup{labelformat=empty}    \caption{A volcano plot of 20 candidate genes in TCGA HNSCC.
 %X axis: unadjusted \protect\textit{p}~value of Kaplan--Meier survival (-log10 transformed).
 %Y axis: multivariate hazard ratio from Cox proportional regression model.
 %Dotted line: significant Bonferroni corrected \protect\textit{p}~value. 
@@ -912,7 +914,7 @@ Step 2: filtering by Bonferroni corrected KM \textit{p}~value,
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
    % \centering
 {    \includegraphics[width=9cm]{Rplot_GSE65858_CoxHR_CAMK2N1_top3FDRKM.pdf}}
-{    \caption{Volcano plot of genes in survival analyses of a validation (GSE65858) cohort.
+{\captionsetup{labelformat=empty}    \caption{Volcano plot of genes in survival analyses of a validation (GSE65858) cohort.
     % GSE117973 using the same platform GPL10558
 The candidate genes---\textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \textcolor{red}{FCGBP}---was confirmed.
 %    In total, 534 genes had \acrshort{fdr}-adjusted \protect\textit{p}~values less than 0.05
@@ -949,7 +951,8 @@ The candidate genes---\textcolor{red}{CAMK2N1}, \textcolor{red}{CALML5}, and \te
 \end{picture}%
 }
 %\hfill
-{\caption{Kaplan--Meier survival analyses, during cutoff finding.
+{\captionsetup{labelformat=empty}
+\caption{Kaplan--Meier survival analyses, during cutoff finding.
 The Kaplan--Meier curves of (\textbf{a}) CAMK2N1, (\textbf{c}) CALML5, and (\textbf{e}) FCGBP with optimal \protect\textit{p}~values. 
 %((b) the cutoffs derived from it's cumulative \protect\textit{p}~value plot).
 %(c) Kaplan--Meier plot of IL19 under optimal \protect\textit{p}~value;
@@ -968,6 +971,7 @@ The cutoffs in the cumulative FDR-adjusted \protect\textit{p}~value plots of (\t
 \clearpage
 \begin{table}[H] 
 %\centering
+\captionsetup{labelformat=empty}
 \captionabove{Univariate/multivariate Cox proportional hazard regression analyses on overall survival time of CAMK2N1 gene expression in HNSCC.}
 
 %%%\label{table:table2}
@@ -1083,7 +1087,7 @@ CI95\%: 95\% confidence interval;
     \caption{Correlations of Cox's hazard ratios of those 20 significant genes.}% (Pearson's r = 0.68).}
     \end{subfigure}    
 }   
-{    \caption{A head-to-head comparison of Cox's hazard ratios from the two datasets (moderate correlation, Pearson's r = 0.68).
+{\captionsetup{labelformat=empty}    \caption{A head-to-head comparison of Cox's hazard ratios from the two datasets (moderate correlation, Pearson's r = 0.68).
 %(Pearson's r = 0.68).
 %TCGA HNSCC and GSE65858 cohorts were applied for identification and validation of the candidate biomarkers in HNSCC.
 %    (\textbf{a}) A total of 5404 genes had Cox's hazard ratios from TCGA HNSCC and GSE65858
@@ -1302,7 +1306,7 @@ Anything that can go wrong, will go wrong.
 
 \begin{figure}[ht]
 \floatbox[{\capbeside\thisfloatsetup{capbesideposition={right,center},capbesidewidth=.35\linewidth,capbesidesep=quad}}]{figure}[\FBwidth]
-{\caption{\texttt{capbesidesep=quad}. I want to thank Sonia. The caption can contain any text but needs to describe the image with enough detail for a reader to completely understand the image.}}
+{\captionsetup{labelformat=empty} \caption{\texttt{capbesidesep=quad}. I want to thank Sonia. The caption can contain any text but needs to describe the image with enough detail for a reader to completely understand the image.}}
 {\includegraphics[width=0.6\textwidth]{placeholder.jpg}}
 \end{figure}
 %\includegraphics[width=9cm]{placeholder}
