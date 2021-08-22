@@ -375,7 +375,7 @@ parskip=half-, % Paragraphs separated by half a line
 \newcommand*{\myauthor}{Li-Hsing (Tex) Chi} % Presenters name(s)
 \newcommand*{\myadvisorM}{Michael Hsiao}
 \newcommand*{\myadvisorJ}{Yu-Chuan (Jack) Li}
-\newcommand*{\mydate}{2021/09/10} %{\today} % Presentation date
+\newcommand*{\mydate}{2021/08/23} %{\today} % Presentation date {2021/09/10}
 \newcommand*{\myuni}{Taipei Medical University} % University or department
 
 %----------------------------------------------------------------------------------------
@@ -676,14 +676,16 @@ The advantages of our workflow---pvalueTex:
 \subsection{Survival modeling}
 \large The Cox proportional-hazards regression model~\cite{Cox1972,Andersen1982,Bradburn2003b}\\
 %\noindent{the effect sizes (coefficients, i.e., hazard ratios)}
-$$h(t) = h_0(t) \times exp(\beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + ... + \beta_n X_n)$$
+$$h(t) = h_0(t) \times e^{(\beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + ... + \beta_n X_n)}$$
+%$$h(t) = h_0(t) \times exp(\beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + ... + \beta_n X_n)$$
 % natural exponential function => y=e^x
 %\end{flushleft}
-\noindent where
+\noindent where,
 \begin{outline} % for highlight
 \1 $t$ represents the survival time;
 \1 $h(t)$ is the hazard function determined by a set of n covariates ($X_1...X_n$)---e.g., clinicopathological features
-\1 The coefficients ($\beta_1...\beta_n$) measure the impacts---the effect sizes (i.e., hazard ratios) of covariates;
+\1 The coefficients ($\beta_1...\beta_n$) measure the impacts---\hl{the effect sizes} (i.e., hazard ratios) of covariates;
+\1 e is the Euler's number;
 \1 The term $h_0$ is called the baseline hazard.
 %\1 A collection of $X_1...X_n$ features from cancer datasets
 \end{outline}
@@ -1332,7 +1334,7 @@ Holistic cancer care~\cite{Mehta2019,Iftikhar2021}:
 \clearpage
 
 %%%%
-\section{Take Home Message}
+\section*{Take Home Message}
 %\thispagestyle{headings}
 %\markright{Take home message \hfill  \hfill}
 \includegraphics[width=14.5cm]{PCA_CarlRogers.pdf}
